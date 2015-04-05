@@ -1,0 +1,18 @@
+{
+	"name": "sigec",
+	"version": "1.0.0",
+	"require": {
+		"php": ">=5.3"
+	},
+	"authors": [
+		{
+			"name": "Sidney dos Santos Souza",
+			"email": "sidneysase@gmail.com"
+		}
+	],
+    "autoload": {
+        "psr-4": {
+			"Sigec\\": "src/"
+		}
+    }
+}
