@@ -12,7 +12,8 @@
 	],
     "autoload": {
         "psr-4": {
-			"Sigec\\": "src/"
+			"Sigec\\": "src/",
+			"Core\\": "core/"
 		}
     }
 }

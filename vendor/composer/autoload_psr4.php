@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Sigec\\' => array($baseDir . '/src'),
+    'Core\\' => array($baseDir . '/core'),
 );

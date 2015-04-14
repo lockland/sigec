@@ -11,7 +11,7 @@ use Sigec\controller\LoginController;
 
 if (isset($_GET["c"]) == false) {
 	$l = new LoginController();
-	print $l->logout();
+	$l->logout();
 	die();
 }
 
@@ -19,7 +19,7 @@ $file = $_GET["c"] . "Controller.php";
 $controller_path = APP_ROOT . DS . 'src' . DS . 'controller';
 if (file_exists($controller_path . DS . $file) == false) {
 	$l = new LoginController();
-	print $l->logout("File {$file} not exists.");
+	$l->logout("File {$file} not exists.");
 	die();
 }	
 
@@ -28,15 +28,15 @@ if (class_exists($class) == true) {
 	$controller = new $class();
 } else {
 	$l = new LoginController();
-	print $l->logout("Class {$class} not exists.");
+	$l->logout("Class {$class} not exists.");
 	die();
 }
 
-$method = isset($_GET["m"]) ? $_GET["m"] : "generateHTML";
+$method = isset($_GET["m"]) ? $_GET["m"] : "index";
 if(method_exists($controller, $method) == true){
-	print $controller->{$method}();
+	$controller->$method();
 } else {
 	$l = new LoginController();
-	print $l->logout("There is no method {$method} at {$class}.");
+	$l->logout("There is no method {$method} at {$class}.");
 	die();
 }
