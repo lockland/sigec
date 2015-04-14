@@ -2,21 +2,14 @@
 
 namespace Sigec\controller;
 
-use Core\controller\Controller;
-use Sigec\view\Login;
-
-class LoginController extends Controller
+class LoginController 
 {
 	public function index()
 	{
-		$view = new Login();
-		$view->generateHTML();
+		print "index login";
 	}
-
 	public function logout($message = null)
 	{
 		return is_null($message) ? "Invalid action<br />" : $message;
 	}
 }
-
-
