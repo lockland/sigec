@@ -2,10 +2,10 @@
 
 namespace Sigec\controller;
 
-class UserController 
+class UserController
 {
-	public  function generateHTML()
-	{
-		return "Test user completed<br />";
-	}
+    public function generateHTML()
+    {
+        return "Test user completed<br />";
+    }
 }

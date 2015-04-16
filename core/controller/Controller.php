@@ -4,5 +4,5 @@ namespace Core\controller;
 
 abstract class Controller
 {
-	abstract public function index();
+    abstract public function index();
 }

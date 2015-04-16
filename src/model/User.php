@@ -2,6 +2,7 @@
 
 namespace Sigec\model;
 
-class User {
+class User
+{
 
 }

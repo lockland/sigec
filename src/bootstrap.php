@@ -16,4 +16,3 @@ define('BD_SENHA', '');
 define('BD_NOME', 'sigec');
 
 require_once APP_ROOT . DS . 'vendor' . DS . 'autoload.php';
-

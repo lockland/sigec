@@ -1,141 +1,141 @@
 * {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
-	min-width: 700px;
-	max-width: 900px;
-	margin: 0px auto;
-	font-family: 'sans-serif';
-	border: 2px solid #02735f;
-	font-size: 12px;
+    min-width: 700px;
+    max-width: 900px;
+    margin: 0px auto;
+    font-family: 'sans-serif';
+    border: 2px solid #02735f;
+    font-size: 12px;
 }
 
 header, footer {
-	color: #f0f0f0;
-	height: 120px;
-	background: rgba(99,169,156,1);
-	background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
-	background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+    color: #f0f0f0;
+    height: 120px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
 }
 
 header h1 {
-	font-size: 25px;
-	text-align: center;
-	top: 35%;
-	position: relative;
+    font-size: 25px;
+    text-align: center;
+    top: 35%;
+    position: relative;
 }
 
 header h4 {
-	font-size: 16px;
-	top: 50%;
-	text-align: right;
-	margin-right: 40px;
-	position: relative;
-	font-weight: normal;
+    font-size: 16px;
+    top: 50%;
+    text-align: right;
+    margin-right: 40px;
+    position: relative;
+    font-weight: normal;
 }
 
 header #user-icon {
-	width: 32px;
-	height: 32px;
-	background-color: #ccc;
-	float: right;
-	margin-top: 26px;
+    width: 32px;
+    height: 32px;
+    background-color: #ccc;
+    float: right;
+    margin-top: 26px;
 }
 
 nav {
-	text-align: center;
-	background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    text-align: center;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
 }
 
 nav ul {
-	list-style: none;
-	height: 50px;
-	width: 90%;
+    list-style: none;
+    height: 50px;
+    width: 90%;
 }
 
 nav ul li {
-	display: inline;
-	float: left;
-	border: 2px solid #fff;
-	border-radius: 5px 5px 0px 0px;
-	background-color: #358F7F;
-	margin-top: 20px;
-	margin-left: 15px; 
+    display: inline;
+    float: left;
+    border: 2px solid #fff;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #358F7F;
+    margin-top: 20px;
+    margin-left: 15px;
 }
 
 nav ul li a {
-	display: inline-block;
-	padding: 7px 25px;
-	text-decoration: none;
-	color: #f0f0f0;
+    display: inline-block;
+    padding: 7px 25px;
+    text-decoration: none;
+    color: #f0f0f0;
 }
 
 #logout {
-	float: right;
-	text-decoration: none;
-	color: #333;
-	margin: 30px 10px 0px 0px;
-	font-weight: bold;
+    float: right;
+    text-decoration: none;
+    color: #333;
+    margin: 30px 10px 0px 0px;
+    font-weight: bold;
 }
 
 aside {
-	min-height: 300px;
-	width: 150px;
-	margin: 10px;
+    min-height: 300px;
+    width: 150px;
+    margin: 10px;
 }
 
 aside ul {
-	list-style: none;
+    list-style: none;
 }
 
 aside ul li {
-	border: 1px solid #02735f;
-	border-radius: 5px;
-	background: rgba(237,245,243,1);
-	text-align: center;
-	margin: 10px 0px 10px 0px;
-	font-weight: bold;
-	font-size: 14px;
-	background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+    font-size: 14px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
 }
 
 aside ul li a {
-	padding: 10px;
-	text-decoration: none;
-	display: block;
-	color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #333;
 }
 
 main {
-	min-height: 300px;
-	margin: 10px;
-	padding: 0px;
-	float: right;
-	border: 2px solid #02735f;
-	border-radius: 5px;
-	min-width: 510px;
-	width: 710px;
+    min-height: 300px;
+    margin: 10px;
+    padding: 0px;
+    float: right;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    min-width: 510px;
+    width: 710px;
 }
 
 #clear {
-	clear: both;
+    clear: both;
 }
