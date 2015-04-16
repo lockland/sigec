@@ -39,7 +39,13 @@ class System
 
     private function setUri()
     {
-        $this->uri = preg_replace('/^\/|\/+$/', '', $_SERVER["PATH_INFO"]);
+        if (!isset($_SERVER["REQUEST_URI"])) {
+            throw new \RuntimeException('Could not get uri from $_SERVER["REQUEST_URI"]');
+        }
+
+        $uri = $_SERVER["REQUEST_URI"];
+        $uri = preg_replace('/^\/|\/index.php/', '', $uri);
+        $this->uri = preg_replace('/\/+$/', '/', $uri);
     }
 
     public function getUri()
@@ -69,6 +75,10 @@ class System
         for ($i = 2; $i < $count; $i++) {
             $key = $i;
             $value = ++$i;
+
+            if (empty($uri[$key])) {
+                continue;
+            }
 
             $_GET[$uri[$key]] = isset($uri[$value]) ? $uri[$value] : '';
         }
