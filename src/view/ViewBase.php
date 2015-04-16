@@ -4,12 +4,13 @@ namespace Sigec\view;
 
 abstract class ViewBase
 {
+	protected $template;
 	protected $data = Array();
 
-	public function generateHTML($template = null) 
+	public function generateHTML() 
 	{
 		extract($this->data);
-		require($template);
+		require($this->template);
 	}
 
 	public function assign($key, $value)

@@ -1,17 +1,12 @@
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL | E_STRICT);
-date_default_timezone_set('America/Sao_Paulo');
-define('DS', DIRECTORY_SEPARATOR);
-define('APP_ROOT', realpath(__DIR__));
+require_once 'src/bootstrap.php';
 
-require_once APP_ROOT . DS . 'vendor' . DS . 'autoload.php';
 use Sigec\controller\LoginController;
 
 if (isset($_GET["c"]) == false) {
 	$l = new LoginController();
-	$l->logout();
+	$l->logout('Invalid Action');
 	die();
 }
 

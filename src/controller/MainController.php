@@ -11,11 +11,6 @@ class MainController extends Controller
 	{
 		$view = new Main();
 		$view->assign('username', 'Francielle Vareira');
-		$view->generateHTML('Main.phtml');
-	}
-
-	public function logout($message = null)
-	{
-		return is_null($message) ? "Invalid action<br />" : $message;
+		$view->generateHTML();
 	}
 }
