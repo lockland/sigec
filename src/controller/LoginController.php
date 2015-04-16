@@ -8,6 +8,7 @@ class LoginController extends Controller
 {
 	public function index()
 	{
+		var_dump($_GET);
 		print "index login";
 	}
 	public function logout($message = null)
