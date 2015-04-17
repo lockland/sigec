@@ -47,17 +47,17 @@ class User extends Model
         return $this;
     }
 
-    public function create()
+    public function create(Array $fields = null)
     {
-        return parent::create(
-            Array(
+        $v = !is_null($fields) ? $fields : Array(
                 'ID' => 0,
                 'NOME' => $this->NOME,
                 'LOGIN' => $this->LOGIN,
                 'SENHA' => $this->SENHA,
                 'PERFIL_USUARIO' => $this->PERFIL_USUARIO
-            )
         );
+        
+        return parent::create($v);
     }
 
 }
