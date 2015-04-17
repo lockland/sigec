@@ -1,8 +1,6 @@
 <?php
 
-namespace Sigec;
-
-use Core\core\System;
+namespace Core\core;
 
 class SystemTest extends \PHPUnit_Framework_TestCase
 {
