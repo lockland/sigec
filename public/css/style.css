@@ -12,9 +12,23 @@ body {
     font-size: 12px;
 }
 
-header, footer {
+header {
     color: #f0f0f0;
     height: 120px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+}
+
+
+footer {
+    color: #f0f0f0;
+    height: 50px;
     background: rgba(99,169,156,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
