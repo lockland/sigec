@@ -4,8 +4,8 @@
 }
 
 body {
-    min-width: 700px;
-    max-width: 900px;
+    min-width: 750px;
+    max-width: 1000px;
     margin: 0px auto;
     font-family: 'sans-serif';
     border: 2px solid #02735f;
@@ -56,11 +56,9 @@ header h4 {
 }
 
 header #user-icon {
-    width: 32px;
-    height: 32px;
-    background-color: #ccc;
     float: right;
-    margin-top: 26px;
+    margin-top: 30px;
+    margin-right: 5px;
 }
 
 nav {
@@ -146,8 +144,7 @@ main {
     float: right;
     border: 2px solid #02735f;
     border-radius: 5px;
-    min-width: 510px;
-    width: 710px;
+    max-width: 810px;
 }
 
 #clear {
