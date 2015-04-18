@@ -12,14 +12,13 @@ class SystemTest extends \PHPUnit_Framework_TestCase
      */
     public function getInstance()
     {
-        $system = new System('Controller');
+        $system = new System();
         $this->assertInstanceOf(self::SYSTEM, $system, 'Could not instantiate System');
     }
 
     /**
      * @test
      * @testdox Test if controller will handler errors
-     * @expectedException RuntimeException
      */
     public function badArguments()
     {
@@ -33,13 +32,11 @@ class SystemTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @testdox
-     * @expectedException RuntimeException
-     * @expectedExceptionRegexp #Could not get uri from $_SERVER["REQUEST_URI"]#
      */
     public function requestUriNotExists()
     {
-        unset($_SERVER["REQUEST_URI"]);
-        new System('Controller');
+        unset($_SERVER["PATH_INFO"]);
+        new System();
     }
 
 
@@ -135,7 +132,7 @@ class SystemTest extends \PHPUnit_Framework_TestCase
 
     private function verifyUri($expected)
     {
-        $_SERVER["REQUEST_URI"] = $expected;
+        $_SERVER["PATH_INFO"] = $expected;
         return new System('Controller');
     }
 }

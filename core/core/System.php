@@ -7,11 +7,9 @@ class System
     private $action = null;
     private $controller = null;
     private $uri = null;
-    private $defaultController = null;
 
-    public function __construct($defaultController)
+    public function __construct()
     {
-        $this->setDefaultController($defaultController);
         $this->setUri();
         $this->processUri();
         $this->setEnvironment();
@@ -28,24 +26,13 @@ class System
         }
     }
 
-    private function setDefaultController($defaultController)
-    {
-        if (!isset($defaultController) || empty($defaultController)) {
-            throw new \RuntimeException('Controller is not valid');
-        }
-
-        $this->defaultController = $defaultController;
-    }
-
     private function setUri()
     {
-        if (!isset($_SERVER["REQUEST_URI"])) {
-            throw new \RuntimeException('Could not get uri from $_SERVER["REQUEST_URI"]');
-        }
-
-        $uri = $_SERVER["REQUEST_URI"];
-        $uri = preg_replace('/^\/|\/index.php/', '', $uri);
-        $this->uri = preg_replace('/\/+$/', '/', $uri);
+        if (isset($_SERVER["PATH_INFO"])) {
+			$uri = $_SERVER["PATH_INFO"];
+			$uri = preg_replace('/^\//', '', $uri);
+			$this->uri = preg_replace('/\/+$/', '/', $uri);
+		}
     }
 
     public function getUri()
@@ -69,8 +56,8 @@ class System
         $count = count($uri);
 
         $this->controller
-            = (isset($uri[0]) && !empty($uri[0])) ? $uri[0] : $this->defaultController;
-        $this->action = isset($uri[1]) ? $uri[1] : 'index';
+            = (isset($uri[0]) && !empty($uri[0])) ? $uri[0] : DEFAULT_CONTROLLER;
+        $this->action = isset($uri[1]) ? $uri[1] : DEFAULT_ACTION;
 
         for ($i = 2; $i < $count; $i++) {
             $key = $i;

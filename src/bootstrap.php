@@ -8,6 +8,8 @@ define('DS', DIRECTORY_SEPARATOR);
 define('APP_ROOT', realpath(__DIR__ . DS . '..'));
 define('CONTROLLERS_PATH', APP_ROOT . DS . 'src' . DS . 'controller');
 define('CONTROLLERS_NAMESPACE', 'Sigec\\controller\\');
+define('DEFAULT_CONTROLLER', 'Main');
+define('DEFAULT_ACTION', 'index');
 
 // Database Configuration 
 define('BD_HOST', 'localhost');

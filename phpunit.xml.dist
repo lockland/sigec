@@ -21,6 +21,6 @@
 		</whitelist>
 	</filter>
 	<php>
-		<server name="REQUEST_URI" value="" />
+		<server name="PATH_INFO" value="" />
 	</php>
 </phpunit>
