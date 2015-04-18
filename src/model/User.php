@@ -47,17 +47,15 @@ class User extends Model
         return $this;
     }
 
-    public function create(Array $fields = null)
+    public function save(Array $fields = null)
     {
-        $v = !is_null($fields) ? $fields : Array(
-                'ID' => 0,
-                'NOME' => $this->NOME,
-                'LOGIN' => $this->LOGIN,
-                'SENHA' => $this->SENHA,
-                'PERFIL_USUARIO' => $this->PERFIL_USUARIO
-        );
+        if (is_null($fields)) {
+            $fields = get_object_vars($this);
+            unset($fields['ID']);
+            unset($fields['pdo']);
+            unset($fields['table']);
+        }
         
-        return parent::create($v);
+        return parent::save($fields);
     }
-
 }

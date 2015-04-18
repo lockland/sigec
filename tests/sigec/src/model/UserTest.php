@@ -14,11 +14,12 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     private $model;
 
-    private $pdo;  
+    private $pdo;
  
     protected function setUp()
     {
         $this->pdo = new \PDO('sqlite::memory:');
+        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec('
             CREATE TABLE IF NOT EXISTS USUARIO (
               ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,6 +36,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
         $this->pdo->exec('DROP TABLE USUARIO');
+        $this->pdo = null;
+        $this->model = null;
     }
 
     /**
@@ -61,21 +64,36 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * create an user and stored
+     * Create an user and stored
      *
      * @test
-     * @testdox Try store user into Database
+     * @testdox Try store user in database
      */
-    public function create()
+    public function save()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->assertEquals(1, (int) $id, 'Could not insert user into database');
+
+    }
+
+    /**
+     * Delete an user in database
+     * @test
+     * @testdox Try delete an user in database
+     */
+    public function delete()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->assertEquals(1, (int) $this->model->delete($id));
+    }
+
+    private function setModelAttributes()
     {
         $this->model->setName('User1');
         $this->model->setLogin('login1');
         $this->model->setPassword('pass1');
         $this->model->setProfile('perfil_usuario1');
-
-        $id = $this->model->create();
-        $this->assertEquals(1, (int) $id, 'Could not insert user into database');
-
     }
-
 }

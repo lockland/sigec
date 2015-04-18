@@ -26,28 +26,22 @@ abstract class Model
     /**
      * Save this on database
      *
-     * @return $this
+     * @return Integer $id Last id inserted
      */
-    public function create(Array $fields)
+    public function save(Array $fields)
     {
         $columns = array_keys($fields);
 
-        $prepare = function ($v) {
+        $prepareString = function ($v) {
             for ($i = 0; $i < count($v); $i++) {
                 $v[$i] = ":" . $v[$i];
             }
-
             return $v;
         };
 
-        $prepareKeys = $prepare($columns);
+        $prepareKeys = $prepareString($columns);
         $columns = implode(', ', $columns);
-
         $values = array_values($fields);
-
-        $id = 0;
-        $values[$id] = null; //The id need is null due autoincrement
-
         $values = array_combine($prepareKeys, $values);
         $prepareKeys = implode(', ', $prepareKeys);
 
@@ -58,8 +52,22 @@ abstract class Model
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($values);
-        
-        return $this->pdo->lastInsertId();
 
+        return $this->pdo->lastInsertId();
+    }
+
+    /**
+     * Delete a row in database
+     *
+     * @param Integer $id Row id to delete in database
+     * @return Integer $rows Affected rows quantity
+     */
+    public function delete($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE ID = :ID";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':ID', $id);
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }

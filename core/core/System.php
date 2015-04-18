@@ -29,10 +29,10 @@ class System
     private function setUri()
     {
         if (isset($_SERVER["PATH_INFO"])) {
-			$uri = $_SERVER["PATH_INFO"];
-			$uri = preg_replace('/^\//', '', $uri);
-			$this->uri = preg_replace('/\/+$/', '/', $uri);
-		}
+            $uri = $_SERVER["PATH_INFO"];
+            $uri = preg_replace('/^\//', '', $uri);
+            $this->uri = preg_replace('/\/+$/', '/', $uri);
+        }
     }
 
     public function getUri()

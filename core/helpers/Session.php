@@ -4,7 +4,7 @@ namespace Core\helpers;
 
 /**
  * Helper to manage sessions
- * @link http://www.videoaulasbrasil.com.br/criando-um-mini-framework-php-5-com-mvc-parte-7/ 
+ * @link http://www.videoaulasbrasil.com.br/criando-um-mini-framework-php-5-com-mvc-parte-7/
  */
 class Session
 {
@@ -27,5 +27,5 @@ class Session
     public function checkSession($name)
     {
         return isset($_SESSION[$name]);
-    }    
+    }
 }
