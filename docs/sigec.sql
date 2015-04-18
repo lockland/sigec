@@ -10,7 +10,7 @@ USE `sigec` ;
 -- Table `sigec`.`GRUPO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`GRUPO` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `DESC_GRUPO` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
@@ -20,7 +20,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`FAMILIA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`FAMILIA` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `DESC_FAMILIA` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`LOCAL`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`LOCAL` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `DESC_LOCAL` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`FORNECEDOR`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`FORNECEDOR` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `RAZAO` VARCHAR(45) NULL,
   `NOME_FANTASIA` VARCHAR(45) NULL,
   `CNPJ` VARCHAR(14) NULL,
@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`PRODUTO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`PRODUTO` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `DESC_PROD` VARCHAR(45) NULL,
   `ESTOQ_MIN` INT NULL,
   `ESTOQ_MAX` INT NULL,
@@ -104,7 +104,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`CLIENTE`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`CLIENTE` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(45) NULL,
   `NOME_MAE` VARCHAR(45) NULL,
   `END` VARCHAR(45) NULL,
@@ -122,7 +122,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`USUARIO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`USUARIO` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(45) NULL,
   `LOGIN` VARCHAR(45) NULL,
   `SENHA` VARCHAR(45) NULL,
@@ -135,7 +135,7 @@ ENGINE = InnoDB;
 -- Table `sigec`.`VENDA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sigec`.`VENDA` (
-  `ID` INT NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `TOTAL` FLOAT NULL,
   `QTDE_PRODUTO` INT NULL,
   `APRAZO` INT NULL,
