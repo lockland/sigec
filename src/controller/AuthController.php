@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->session = new Session();
-        $this->mainUrl = 'redirect: ' . URL_BASE . '/index.php/Main';
+        $this->mainUrl = 'location: ' . URL_BASE . '/index.php/Main';
         $this->view = new Login();
     }
 
