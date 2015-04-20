@@ -10,7 +10,7 @@ abstract class ViewBase
     public function generateHTML()
     {
         extract($this->data);
-        require($this->template);
+        include $this->template;
     }
 
     public function assign($key, $value)

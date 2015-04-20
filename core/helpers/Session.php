@@ -13,6 +13,7 @@ class Session
         $_SESSION[$name] = $value;
         return $this;
     }
+
     public function selectSession($name)
     {
         return $_SESSION[$name];

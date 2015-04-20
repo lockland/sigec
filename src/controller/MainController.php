@@ -2,11 +2,15 @@
 
 namespace Sigec\controller;
 
-use Core\controller\Controller;
 use Sigec\view\Main;
 
-class MainController extends Controller
+class MainController extends ControllerBase
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index()
     {
         $view = new Main();

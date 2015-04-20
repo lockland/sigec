@@ -9,14 +9,20 @@ abstract class Model
      *
      * @var \PDO $pdo
      */
-    protected $pdo;
+    protected $pdo = null;
     
-    public function __construct(\PDO $pdo)
+    public function setPdo(\PDO $pdo)
     {
+        if (!is_object($pdo)) {
+            throw new \InvalidArgumentException('PDO is invalid');
+        }
         $this->pdo = $pdo;
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
-        $this->pdo->setAttribute(\PDO::ATTR_STRINGIFY_FETCHES, false);
+    }
+
+    public function closePdo()
+    {
+        $this->pdo = null;
     }
 
     protected function invalidStringArgument($attr, $attrDescription)

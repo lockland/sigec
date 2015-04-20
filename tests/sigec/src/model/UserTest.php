@@ -54,7 +54,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      * Validate if constructor receive no pdo instance
      *
      * @test
-     * @testdox Could I no pass PDO instance by constructor?
+     * @testdox           Could I no pass PDO instance by constructor?
      * @expectedException PHPUnit_Framework_Error
      */
     public function constructWithoutPdo()
@@ -78,6 +78,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Delete an user in database
+     *
      * @test
      * @testdox Try delete an user in database
      */
@@ -86,6 +87,105 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->setModelAttributes();
         $id = $this->model->save();
         $this->assertEquals(1, (int) $this->model->delete($id));
+    }
+
+    /**
+     * @test
+     * @textdox Try retrieve user by id
+     */
+    public function retrieve()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->model->setId($id);
+
+        $retrieved = new User($this->pdo);
+        $retrieved->retrieve($id);
+
+        $this->assertEquals(
+            $this->model->getId(),
+            $retrieved->getId(),
+            'Could not retrieve user by id'
+        );
+
+    }
+
+    /**
+     * @test
+     * @textdox Try retrieve user by id using invalid id
+     * @expectedException InvalidArgumentException
+     */
+    public function retrieveInvalidId()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->model->setId($id);
+
+        $retrieved = new User($this->pdo);
+        $retrieved->retrieve('');
+
+        $this->assertEquals(
+            $this->model->getId(),
+            $retrieved->getId(),
+            'User retrieved using an invalid id'
+        );
+
+    }
+
+    /**
+     * @test
+     * @textdox Try retrieve user by id using credential
+     */
+    public function retrieveByCredential()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->model->setId($id);
+
+        $retrieved = new User($this->pdo);
+        $retrieved->retrieveByCredential(
+            $this->model->getLogin(),
+            $this->model->getPassword()
+        );
+
+        $this->assertEquals(
+            $this->model->getId(),
+            $retrieved->getId(),
+            'Could not retrieve user by credential'
+        );
+
+    }
+
+    /**
+     * @test
+     * @testdox Try update user
+     */
+    public function update()
+    {
+        $this->setModelAttributes();
+        $id = $this->model->save();
+        $this->model->setId($id);
+        $this->model->setLogin('UpdateLogin');
+        $this->model->setPassword('UpdatePassword');
+        $this->model->update();
+
+        $retrieved = new User($this->pdo);
+        $retrieved->retrieveByCredential(
+            $this->model->getLogin(),
+            $this->model->getPassword()
+        );
+
+        $this->assertEquals(
+            $this->model->getLogin(),
+            $retrieved->getLogin(),
+            'Could not update login'
+        );
+
+        $this->assertEquals(
+            $this->model->getPassword(),
+            $retrieved->getPassword(),
+            'Could not update password'
+        );
     }
 
     private function setModelAttributes()

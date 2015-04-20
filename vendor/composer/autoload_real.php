@@ -9,7 +9,7 @@ class ComposerAutoloaderInite7247e93bd9471708668e7cd2a792967
     public static function loadClassLoader($class)
     {
         if ('Composer\Autoload\ClassLoader' === $class) {
-            require __DIR__ . '/ClassLoader.php';
+            include __DIR__ . '/ClassLoader.php';
         }
     }
 
@@ -23,17 +23,17 @@ class ComposerAutoloaderInite7247e93bd9471708668e7cd2a792967
         self::$loader = $loader = new \Composer\Autoload\ClassLoader();
         spl_autoload_unregister(array('ComposerAutoloaderInite7247e93bd9471708668e7cd2a792967', 'loadClassLoader'));
 
-        $map = require __DIR__ . '/autoload_namespaces.php';
+        $map = include __DIR__ . '/autoload_namespaces.php';
         foreach ($map as $namespace => $path) {
             $loader->set($namespace, $path);
         }
 
-        $map = require __DIR__ . '/autoload_psr4.php';
+        $map = include __DIR__ . '/autoload_psr4.php';
         foreach ($map as $namespace => $path) {
             $loader->setPsr4($namespace, $path);
         }
 
-        $classMap = require __DIR__ . '/autoload_classmap.php';
+        $classMap = include __DIR__ . '/autoload_classmap.php';
         if ($classMap) {
             $loader->addClassMap($classMap);
         }
@@ -46,5 +46,5 @@ class ComposerAutoloaderInite7247e93bd9471708668e7cd2a792967
 
 function composerRequiree7247e93bd9471708668e7cd2a792967($file)
 {
-    require $file;
+    include $file;
 }

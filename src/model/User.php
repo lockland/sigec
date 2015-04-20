@@ -14,7 +14,7 @@ class User extends Model
 
     public function __construct(\PDO $pdo)
     {
-        parent::__construct($pdo);
+        $this->setPdo($pdo);
         $this->table = 'USUARIO';
     }
 
@@ -53,6 +53,31 @@ class User extends Model
         return $this;
     }
 
+    public function getId()
+    {
+        return $this->ID;
+    }
+
+    public function getName()
+    {
+        return $this->NOME;
+    }
+
+    public function getLogin()
+    {
+        return $this->LOGIN;
+    }
+
+    public function getPassword()
+    {
+        return $this->SENHA;
+    }
+
+    public function getProfile()
+    {
+        return $this->PERFIL_USUARIO;
+    }
+
     /**
      * Save this on database
      *
@@ -83,17 +108,17 @@ class User extends Model
         $stmt->bindParam(':SENHA', $this->SENHA, \PDO::PARAM_STR);
         $stmt->bindParam(':PERFIL_USUARIO', $this->PERFIL_USUARIO, \PDO::PARAM_STR);
 
-        if ($stmt->execute()) {
-            return (int) $this->pdo->lastInsertId();
+        if (!$stmt->execute()) {
+            throw new \RuntimeException('Fail to insert user');
         }
 
-        throw new \RuntimeException('Fail to insert user');
+        return (int) $this->pdo->lastInsertId();
     }
 
     /**
      * Delete a row in database
      *
-     * @param Integer $id Row id to delete in database
+     * @param  Integer $id Row id to delete in database
      * @return Integer $rows Affected rows quantity
      */
     public function delete($id)
@@ -101,15 +126,17 @@ class User extends Model
         $stmt = $this->pdo->prepare("DELETE FROM {$this->table} WHERE ID = :ID");
         $stmt->bindParam(':ID', $id, \PDO::PARAM_INT);
 
-        if ($stmt->execute()) {
-            return (int) $stmt->rowCount();
+        if (!$stmt->execute()) {
+            throw new \RuntimeException('Fail to delete user');
         }
 
-        throw new \RuntimeException('Fail to delete user');
+        return  (int) $stmt->rowCount();
     }
     
     public function retrieve($id)
     {
+        $this->invalidId($id);
+
         $stmt = $this->pdo->prepare("
             SELECT 
                 *
@@ -121,12 +148,7 @@ class User extends Model
 
         $stmt->bindParam(':ID', $id, \PDO::PARAM_INT);
 
-        if ($stmt->execute()) {
-            $this->mapper($stmt);
-        }
-        
-        throw new \RuntimeException('Fail to retrieve user using id');
-    
+        $this->validateAndMapper($stmt, 'Fail to retrieve user using id');
     }
 
     public function retrieveByCredential($login, $pass)
@@ -144,33 +166,62 @@ class User extends Model
         $stmt->bindParam(':LOGIN', $login, \PDO::PARAM_STR);
         $stmt->bindParam(':SENHA', $pass, \PDO::PARAM_STR);
 
-        if ($stmt->execute()) {
-            $this->mapper($stmt);
-        }
-        
-        throw new \RuntimeException('Fail to retrieve user using credentials');
+        $this->validateAndMapper($stmt, 'Fail to retrieve user using credential');
+
     }
 
-    private function mapper($stmt)
+    private function validateAndMapper($stmt, $errorMsg)
     {
+        if (!$stmt->execute()) {
+            throw new \RuntimeException($errorMsg);
+        }
+
         $resultset = $stmt->fetch(\PDO::FETCH_OBJ);
+
+        if (!$resultset) {
+            throw new \RuntimeException($errorMsg);
+        }
+
         $stmt->closeCursor();
+        $this->mapper($resultset);
+    }
 
-        var_dump($resultset);
+    private function mapper($resultset)
+    {
         $this->setId((int) $resultset->ID);
-        $this->setName($resultset->NOME);
-        $this->setLogin($resultset->LOGIN);
-        $this->setPassword($resultset->SENHA);
-        $this->setProfile($resultset->PERFIL_USUARIO);
-
+        $this->setName((string) $resultset->NOME);
+        $this->setLogin((string) $resultset->LOGIN);
+        $this->setPassword((string) $resultset->SENHA);
+        $this->setProfile((string) $resultset->PERFIL_USUARIO);
     }
 
     public function fetchAll()
     {
-        $sql = "SELECT {$fields} FROM {$this->table} {$where} {$limit} {$offset}";
-        $this->stmt = $this->pdo->prepare($sql);
-        $this->stmt->execute();
-        $resultset = $this->stmt->fetchAll();
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
+        $stmt->execute();
+        $resultset = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        $stmt->closeCursor();
+        return $resultset;
     }
-    public function update(){}
+
+    public function update()
+    {
+        $stmt = $this->pdo->prepare("
+            UPDATE {$this->table}
+            SET NOME = :NOME, LOGIN = :LOGIN, SENHA = :SENHA, PERFIL_USUARIO = :PERFIL_USUARIO
+            WHERE ID = :ID
+        ");
+
+        $stmt->bindParam(':ID', $this->ID, \PDO::PARAM_INT);
+        $stmt->bindParam(':NOME', $this->NOME, \PDO::PARAM_STR);
+        $stmt->bindParam(':LOGIN', $this->LOGIN, \PDO::PARAM_STR);
+        $stmt->bindParam(':SENHA', $this->SENHA, \PDO::PARAM_STR);
+        $stmt->bindParam(':PERFIL_USUARIO', $this->PERFIL_USUARIO, \PDO::PARAM_STR);
+
+        if (!$stmt->execute()) {
+            throw new \RuntimeException('Fail to update user');
+        }
+
+        return (int) $stmt->rowCount();
+    }
 }
