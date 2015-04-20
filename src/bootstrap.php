@@ -15,8 +15,8 @@ define('PUBLIC_URL', URL_BASE . '/public');
 
 // Database Configuration 
 define('BD_HOST', 'localhost');
-define('BD_USUARIO', 'root');
-define('BD_SENHA', '');
-define('BD_NOME', 'sigec');
+define('BD_USER', 'root');
+define('BD_PASS', '');
+define('BD_BASE', 'sigec');
 
 require_once APP_ROOT . DS . 'vendor' . DS . 'autoload.php';
