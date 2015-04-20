@@ -58,7 +58,8 @@ class System
 
         $this->controller
             = (isset($uri[0]) && !empty($uri[0])) ? $uri[0] : DEFAULT_CONTROLLER;
-        $this->action = isset($uri[1]) ? $uri[1] : DEFAULT_ACTION;
+        $this->action
+            = (isset($uri[1]) && !empty($uri[1])) ? $uri[1] : DEFAULT_ACTION;
 
         for ($i = 2; $i < $count; $i++) {
             $key = $i;
