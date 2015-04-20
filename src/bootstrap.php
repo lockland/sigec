@@ -10,6 +10,8 @@ define('CONTROLLERS_PATH', APP_ROOT . DS . 'src' . DS . 'controller');
 define('CONTROLLERS_NAMESPACE', 'Sigec\\controller\\');
 define('DEFAULT_CONTROLLER', 'Main');
 define('DEFAULT_ACTION', 'index');
+define('URL_BASE', '/sigec');
+define('PUBLIC_URL', URL_BASE . '/public');
 
 // Database Configuration 
 define('BD_HOST', 'localhost');
