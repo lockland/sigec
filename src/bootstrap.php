@@ -14,9 +14,9 @@ define('URL_BASE', '/sigec');
 define('PUBLIC_URL', URL_BASE . '/public');
 
 // Database Configuration 
-define('BD_HOST', 'localhost');
-define('BD_USER', 'root');
-define('BD_PASS', '');
-define('BD_BASE', 'sigec');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_BASE', 'sigec');
 
 require_once APP_ROOT . DS . 'vendor' . DS . 'autoload.php';
