@@ -2,14 +2,10 @@
 
 namespace Sigec\view;
 
-use Core\view\View;
-
-class Main extends View
+class Login extends ViewBase
 {
-    public function generateHTML($data = null)
+    public function __construct()
     {
-        include('templates/header.phtml');
-        include('templates/aside.phtml');
-        include('templates/footer.phtml');
+        $this->template = 'Login.phtml';
     }
 }

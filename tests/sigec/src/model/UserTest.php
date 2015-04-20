@@ -19,7 +19,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->pdo = new \PDO('sqlite::memory:');
-        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec('
             CREATE TABLE IF NOT EXISTS USUARIO (
               ID INTEGER PRIMARY KEY AUTOINCREMENT,
