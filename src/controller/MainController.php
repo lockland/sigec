@@ -14,7 +14,7 @@ class MainController extends ControllerBase
     public function index()
     {
         $view = new Main();
-        $view->assign('username', 'Francielle Vareira');
+        $view->assign('username', $this->user->getName());
         $view->generateHTML();
     }
 }
