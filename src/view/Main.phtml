@@ -1,17 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="<?=PUBLIC_URL?>/css/style.css">
-		<title>Sigec - Sistema de Gerenciamento e Controle</title>
-	</head>
+    <?php include('templates/head.phtml');?>
 	<body>
-		<?php 
-			include('templates/header.phtml');
-			include('templates/nav.phtml');
-			include('templates/content.phtml');
-			include('templates/aside.phtml');
-		?>
+        <?php include('templates/header.phtml');?>
+        <?php include('templates/nav.phtml');?>        
+        <main id='welcome'>
+            <h1> Seja bem vindo!! </h1>
+            <h2> ao </h2>
+            <h1> SIGEC </h1>
+		</main>
+        <?php include('templates/aside.phtml');?>
 		<div id='clear'></div>
 		<?php include('templates/footer.phtml');?>
 	</body>
