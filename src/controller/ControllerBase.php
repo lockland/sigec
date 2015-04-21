@@ -11,15 +11,14 @@ class ControllerBase extends Controller
 
     public function __construct()
     {
-        $sm = new Session();
+        $session = new Session();
 
-        if (!$sm->checkSession('user')) {
-            @session_destroy();
+        if (!$session->checkSession('user')) {
+            $session->destroy();
             header('location: ' . URL_BASE);
-            return;
+        } else {
+            $this->user = unserialize($session->selectSession('user'));
         }
-
-        $this->user = unserialize($sm->selectSession('user'));
     }
 
     public function index()

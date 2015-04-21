@@ -29,4 +29,9 @@ class Session
     {
         return isset($_SESSION[$name]);
     }
+
+    public function destroy()
+    {
+        @session_destroy();
+    }
 }

@@ -57,7 +57,7 @@ class AuthController extends Controller
 
     public function logout($message = null)
     {
-        @session_destroy();
+        $this->session->destroy();
         header('location: ' . URL_BASE);
     }
 
