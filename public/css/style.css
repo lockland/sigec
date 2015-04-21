@@ -156,3 +156,9 @@ main#welcome {
 #clear {
     clear: both;
 }
+
+// ================ USERS LIST WINDOW
+
+ul li ul {
+    list-style: none;
+}

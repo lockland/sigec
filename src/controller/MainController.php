@@ -2,7 +2,7 @@
 
 namespace Sigec\controller;
 
-use Sigec\view\Main;
+use Sigec\view\Main as View;
 
 class MainController extends ControllerBase
 {
@@ -13,7 +13,7 @@ class MainController extends ControllerBase
 
     public function index()
     {
-        $view = new Main();
+        $view = new View();
         $view->assign('username', $this->user->getName());
         $view->generateHTML();
     }
