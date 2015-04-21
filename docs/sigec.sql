@@ -127,9 +127,9 @@ CREATE TABLE IF NOT EXISTS `sigec`.`USUARIO` (
   `LOGIN` VARCHAR(45) NULL,
   `SENHA` VARCHAR(45) NULL,
   `PERFIL_USUARIO` VARCHAR(45) NULL,
+  `ATIVO` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `sigec`.`VENDA`
@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `sigec`.`VENDA` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO USUARIO VALUES (1, 'Administrador', 'admin', md5('admin'), 'administrador', 1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

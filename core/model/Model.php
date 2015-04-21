@@ -39,6 +39,13 @@ abstract class Model
         }
     }
 
+    protected function invalidBoolean($bool, $boolDescription)
+    {
+        if (!is_bool($bool)) {
+            throw new \InvalidArgumentException("{$boolDescription} is invalid!");
+        }
+    }
+
     abstract public function save();
     abstract public function delete($id);
     abstract public function fetchAll();

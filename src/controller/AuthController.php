@@ -40,8 +40,11 @@ class AuthController extends Controller
         $user = new User($this->pdo);
 
         try {
-            $user->retrieveByCredential($_POST['login'], $_POST['password']);
+            $user->setLogin($_POST['login']);
+            $user->setPassword($_POST['password']);
+            $user->retrieveByCredential();
             $user->closePdo();
+
             $this->session->createSession('user', serialize($user));
             header($this->mainUrl);
 

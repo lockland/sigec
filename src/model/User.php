@@ -11,6 +11,7 @@ class User extends Model
     private $LOGIN;
     private $SENHA;
     private $PERFIL_USUARIO;
+    private $ATIVO = true;
 
     public function __construct(\PDO $pdo)
     {
@@ -22,6 +23,13 @@ class User extends Model
     {
         $this->invalidId($id);
         $this->ID = $id;
+        return $this;
+    }
+
+    public function isEnable($enable = true)
+    {
+        $this->invalidBoolean($enable, 'Enable');
+        $this->ATIVO = $enable;
         return $this;
     }
 
@@ -42,7 +50,7 @@ class User extends Model
     public function setPassword($password)
     {
         $this->invalidStringArgument($password, 'Password');
-        $this->SENHA = $password;
+        $this->SENHA = md5($password);
         return $this;
     }
 
@@ -151,7 +159,7 @@ class User extends Model
         $this->validateAndMapper($stmt, 'Fail to retrieve user using id');
     }
 
-    public function retrieveByCredential($login, $pass)
+    public function retrieveByCredential()
     {
         $stmt = $this->pdo->prepare("
             SELECT 
@@ -163,8 +171,8 @@ class User extends Model
                 AND SENHA = :SENHA
         ");
 
-        $stmt->bindParam(':LOGIN', $login, \PDO::PARAM_STR);
-        $stmt->bindParam(':SENHA', $pass, \PDO::PARAM_STR);
+        $stmt->bindParam(':LOGIN', $this->LOGIN, \PDO::PARAM_STR);
+        $stmt->bindParam(':SENHA', $this->SENHA, \PDO::PARAM_STR);
 
         $this->validateAndMapper($stmt, 'Fail to retrieve user using credential');
 
@@ -188,11 +196,12 @@ class User extends Model
 
     private function mapper($resultset)
     {
-        $this->setId((int) $resultset->ID);
-        $this->setName((string) $resultset->NOME);
-        $this->setLogin((string) $resultset->LOGIN);
-        $this->setPassword((string) $resultset->SENHA);
-        $this->setProfile((string) $resultset->PERFIL_USUARIO);
+        $this->ID = $resultset->ID;
+        $this->NOME = $resultset->NOME;
+        $this->LOGIN = $resultset->LOGIN;
+        $this->SENHA = $resultset->SENHA;
+        $this->PERFIL_USUARIO = $resultset->PERFIL_USUARIO;
+        $this->ATIVO = $resultset->ATIVO;
     }
 
     public function fetchAll()
@@ -208,7 +217,7 @@ class User extends Model
     {
         $stmt = $this->pdo->prepare("
             UPDATE {$this->table}
-            SET NOME = :NOME, LOGIN = :LOGIN, SENHA = :SENHA, PERFIL_USUARIO = :PERFIL_USUARIO
+            SET NOME = :NOME, LOGIN = :LOGIN, SENHA = :SENHA, PERFIL_USUARIO = :PERFIL_USUARIO, ATIVO = :ATIVO
             WHERE ID = :ID
         ");
 
@@ -217,6 +226,7 @@ class User extends Model
         $stmt->bindParam(':LOGIN', $this->LOGIN, \PDO::PARAM_STR);
         $stmt->bindParam(':SENHA', $this->SENHA, \PDO::PARAM_STR);
         $stmt->bindParam(':PERFIL_USUARIO', $this->PERFIL_USUARIO, \PDO::PARAM_STR);
+        $stmt->bindParam(':ATIVO', $this->ATIVO, \PDO::PARAM_INT);
 
         if (!$stmt->execute()) {
             throw new \RuntimeException('Fail to update user');

@@ -25,7 +25,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
               NOME TEXT NULL,
               LOGIN TEXT NULL,
               SENHA TEXT NULL,
-              PERFIL_USUARIO TEXT NULL
+              PERFIL_USUARIO TEXT NULL,
+              ATIVO INTEGER DEFAULT 1
             )
         ');
 
@@ -142,11 +143,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $id = $this->model->save();
         $this->model->setId($id);
 
-        $retrieved = new User($this->pdo);
-        $retrieved->retrieveByCredential(
-            $this->model->getLogin(),
-            $this->model->getPassword()
-        );
+        $retrieved = clone($this->model);
+        $retrieved->retrieveByCredential();
 
         $this->assertEquals(
             $this->model->getId(),
@@ -162,18 +160,21 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function update()
     {
+        $login = 'UpdateLogin';
+        $pass = 'UpdatePassword';
+
         $this->setModelAttributes();
         $id = $this->model->save();
+
         $this->model->setId($id);
-        $this->model->setLogin('UpdateLogin');
-        $this->model->setPassword('UpdatePassword');
+        $this->model->setLogin($login);
+        $this->model->setPassword($pass);
         $this->model->update();
 
         $retrieved = new User($this->pdo);
-        $retrieved->retrieveByCredential(
-            $this->model->getLogin(),
-            $this->model->getPassword()
-        );
+        $retrieved->setLogin($login);
+        $retrieved->setPassword($pass);
+        $retrieved->retrieveByCredential();
 
         $this->assertEquals(
             $this->model->getLogin(),
