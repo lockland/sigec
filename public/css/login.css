@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 5px;
+    padding: 10px;
+    font-family: 'sans-serif';
+    font-size: 12px;
+    color: #f0f0f0;
+}
+
+
+div#login {
+    padding: 25px 22px;
+    min-height: 500px;
+    background: url('../images/div-login.png') repeat-x;
+    border: 2px solid #02735f;
+}
+
+header {
+    height: 98px;
+    background: url('../images/footer-header.png') repeat-x;
+    border: 2px solid #02735f;
+}
+
+header h1 {
+    font-size: 25px;
+    top: 35%;
+    text-align: center;
+    position: relative;
+}
+
+header img {
+    float: left;
+    margin: 5px;
+}
+
+main {
+   height: 325px;
+}
+
+div#content-login {
+    background-color: #fcfcfc;
+    color: #111;
+    min-height: 130px;
+    position: relative;
+    width: 300px;
+    top: 25%;
+    margin: auto;
+    border: 2px solid #02735f;
+    border-radius: 7px;
+    text-align: center;
+    padding: 10px;
+}
+
+div#content-login #title {
+    font-weight: bold;
+}
+div#content-login label {
+    width:100%;
+    display: block;
+    padding:5px 0 5px 0;
+}
+
+div#content-login label span {
+    display: block;
+    float:left;
+    width:60px;
+    text-align:right;
+    padding:5px;
+}
+
+div#content-login input#login{
+    border: 1px solid #555;
+    padding:2px 2px;
+    width: 204px;
+}
+
+div#content-login input#password{
+    border: 1px solid #555;
+    padding:2px 2px;
+    width: 160px;
+}
+
+div#content-login input#submit{
+    border: 2px solid #02735f;
+    color: #fff;
+    background: url('../images/footer-header.png') repeat-x;
+}
+
+div#content-login .error-login {
+    margin-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #f33
+}
+
+
+footer {
+    height: 98px;
+    background: url('../images/footer-header.png') repeat-x;
+    border: 2px solid #02735f;
+}

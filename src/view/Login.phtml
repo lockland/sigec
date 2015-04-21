@@ -2,37 +2,38 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="<?=PUBLIC_URL?>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?=PUBLIC_URL?>/css/login.css">
 		<title>Sigec - Sistema de Gerenciamento e Controle</title>
 	</head>
     <body>
         <div id='login'>
-            <div id='header-login' class='div-login'>
+            <header id='header-login' class='div-login'>
                 <img src='<?=PUBLIC_URL?>/images/logo.png' id='logo' alt='Sigec logo'/>
                 <h1>Sigec - Sistema de Gerenciamento e Controle</h1>
-            </div>
+            </header>
 
-            <div id='content-login'>                
-                <img src='<?=PUBLIC_URL?>/images/user-icon.png' id='user-icon' alt='User icon'/>
-                <span>LOG IN</span>
-                <form action='<?=URL_BASE?>/index.php/Auth/login' method='post'>
-                    <label> 
-                        USUARIO: <input type='text' name='login' required maxlength=40 />
-                    </label>
-                    <br />
-                    <label> 
-                        SENHA: <input type='password' name='password' required maxlength=40 />
-                    </label> 
-                    <br />
-                    <input type='submit' value='Login'/>
-                </form>
-                <?php foreach($errors as $error): ?>
-                    <span id='error-login'><?=$error?></span>
-                <?php endforeach; ?>
-            </div>
-            <div id='footer-login' class='div-login'>
-                <span>footer</span>
-            </div>
+            <main>
+                <div id='content-login'>                
+                    <img src='<?=PUBLIC_URL?>/images/user-icon.png' id='user-icon' alt='User icon'/>
+                    <span id="title">LOG IN</span>
+                    <form action='<?=URL_BASE?>/index.php/Auth/login' method='post'>
+                        <label> 
+                            <span>USUARIO:</span>
+                            <input id='login' type='text' name='login' required maxlength=40 />
+                        </label>
+                        <label> 
+                            <span>SENHA:</span>
+                            <input id='password' type='password' name='password' required maxlength=40 />
+                            <input type='submit' value='Login' id='submit'/>
+                        </label> 
+                    </form>
+                    <?php foreach($errors as $error): ?>
+                        <span class='error-login'><?=$error?></span>
+                    <?php endforeach; ?>
+                </div>
+            </main>
+            <footer id='footer-login' class='div-login'>
+            </footer>
         </div>
 	</body>
 </html>
