@@ -4,16 +4,15 @@
 }
 
 html, body {
-    height: 94%;
+    height: 100%;
 }
 
 body {
     margin: 0px auto;
-    margin-top: 1%;
     font-family: 'sans-serif';
     font-size: 12px;
     color: #f0f0f0;
-    width: 99%;
+    width: 100%;
 }
 
 div#login {
