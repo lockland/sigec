@@ -29,6 +29,7 @@ header {
 footer {
     color: #f0f0f0;
     height: 50px;
+	margin-top:30px;
     background: rgba(99,169,156,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
@@ -53,8 +54,12 @@ header h4 {
     margin-right: 40px;
     position: relative;
     font-weight: normal;
+	
 }
+header h4 span#username{
 
+text-transform: uppercase;
+}
 header #user-icon {
     float: right;
     margin-top: 30px;
@@ -76,6 +81,7 @@ nav ul {
     list-style: none;
     height: 50px;
     width: 90%;
+	margin-left:25%
 }
 
 nav ul li {
@@ -111,6 +117,7 @@ aside {
 
 aside ul {
     list-style: none;
+	margin-top:100px;
 }
 
 aside ul li {
@@ -158,7 +165,359 @@ main#welcome {
 }
 
 // ================ USERS LIST WINDOW
+  
 
-ul li ul {
-    list-style: none;
+
+div#users-list{
+
+margin-left:5px;
+
+}
+div#list{
+
+    min-height: 300px;
+    margin-left: 20px;
+	margin-top:5%;
+	margin-bottom:20px;
+    padding: 0px;
+    float: center;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    width: 95%;
+}
+div#users-list input#novo{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 15px 0px;
+    font-size: 18px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left: 290px;
+}
+div#users-list input#edicao{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 15px 0px;
+    font-size: 18px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left: 20px;
+}
+div#users-list input#fecha{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 15px 0px;
+    font-size: 18px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left: 20px;
+}
+
+div#filtro-lateral{
+
+    min-height: 60px;
+    margin-left: 20px;
+	margin-top:5%%;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    width:15%;
+}
+div#filtro-lateral form{
+ margin-top:10px;
+ font-size:14px;
+ font-family: 'sans-serif';
+ font-weight: bold;
+ }
+ div#filtro-lateral label{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left:13px;
+	
+	}
+
+table, th, td {
+   border: 1px solid #02735f;
+   }
+th{
+
+    height: 30px;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+td,tr{
+height: 20px;
+
+}
+div#search{
+
+    min-height: 100px;
+    margin-left: 260px;
+	margin-top:-140px;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    width:60%;
+
+
+
+
+}
+div#seach_name{
+
+border: 5px solid #02735f;
+
+}
+
+
+header#search{
+
+    color: #f0f0f0;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+
+
+}
+
+ header h1#filter{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+ 
+ }
+header#lateral{
+
+    color: #f0f0f0;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+
+
+}
+
+ header h1#filter_por{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+    color:black;
+ }
+
+div#search form#name{
+margin-left:25%;
+margin-top:4%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#search input#camp{
+border: 1px solid #02735f;
+
+}
+div#search input#filter_bottom{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 8px 0px 8px 0px;
+    font-size: 12px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left: 180px;
+	font-weight: bold;
+}
+div#search input#mostrar{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 8px 0px 8px 0px;
+    font-size: 12px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-left: 20px;
+	font-weight: bold;
+}
+header#addusu{
+
+    color: #f0f0f0;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+
+
+}
+header h1#adduser{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+ 
+ }
+ 
+div#add  span#name {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#add  span#login {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#add  span#password {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#add  span#rpassword {
+margin-top:5%;
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#add  span#perfil {
+top:5%;
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+
+}
+div#add form#add_user{
+
+margin-top:30px;
+}
+div#add input#gravar{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-size: 14px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-top:80px;
+	margin-left:320px;
+	font-weight: bold;
+}
+div#add input#close{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-size: 14px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-top:80px;
+	margin-left:10px;
+	font-weight: bold;
+}
+div#add label#rpassword{
+
+margin-top:10px;
+
+}
+div#add input#login {
+border: 1px solid #02735f;
+
+}
+div#add input#name {
+
+border: 1px solid #02735f;
+}
+
+div#add input#password{
+
+border: 1px solid #02735f;
+}
+div#add input#rpassword{
+
+border: 1px solid #02735f;
+}
+div#add select#profile{
+
+border: 1px solid #02735f;
 }

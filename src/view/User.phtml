@@ -6,40 +6,46 @@
         <?php include('templates/nav.phtml');?>
         <main id='users-list'>
             <?php if($action == 'add'):?>
-                <div>
-                    <h3>Inclusao de Usuario</h3>
-                    <form action='<?=URL_BASE?>/index.php/User/save' method="post">
+                <div id="add">
+				    <header id="addusu"><h1 id=adduser>Inclusão de Usuário</h1></header>
+                    
+                    <form id="add_user"action='<?=URL_BASE?>/index.php/User/save' method="post">
                         <label> 
-                            <span>Nome: </span>
+                            <span id="name">Nome: </span>
                             <input id='name' type='text' value='<?=@$post->name?>' name='name' required maxlength='40' />
                         </label>
-                        <label> 
-                            <span>Login:</span>
+                        </br>
+						<label> 
+						
+                            <span id="login">Login:</span>
                             <input id='login' type='text' value='<?=@$post->login?>' name='login' required maxlength=40 />
                         </label>
                         <label> 
-                            <span>Senha:</span>
+                            <span id="password">Senha:</span>
                             <input id='password' type='password' name='password' required maxlength=40 />
                         </label>
-                        <label> 
-                            <span>Repita senha:</span>
+						</br>
+                        <label id="rpassword"> 
+                            <span id="rpassword">Repita senha:</span>
                             <input id='rpassword' type='password' name='rpassword' required maxlength=40 />
                         </label>
+						</br>
                         <!--label> 
                             <span>Email:</span>
                             <input id='email' type='email' value='<?=@$post->email?>' name='email' required maxlength=40 />
                         </label-->
-                        <label> 
-                            <span>Perfil:</span>
-                            <select name='profile' required>
+                        <label id="profile"> 
+                            <span id="perfil">Perfil:</span>
+                            <select id ="profile" name='profile' required>
                                 <option value=""> -- Selecione -- </option>
                                 <option value="administrador" <?php echo (@$post->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
                                 <option value="usuario" <?php echo (@$post->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
                             </select> 
                         </label>
-
-                        <input type="submit" value="Gravar">
-                        <input type="button" value="Fechar" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                        </br>
+						</br>
+                        <input type="submit" value="Gravar" id="gravar">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form>
                     <?php foreach($errors as $erro): ?>
                         <span><?=$erro?></span>
@@ -50,30 +56,65 @@
                 <div>UPDATE </div> 
 
             <?php else: ?>
+            			
                 <div id='users-list'>
-                    <ul>
-                        <li>
-                            <ul>
-                                <li>Codigo</li>
-                                <li>Nome</li>
-                                <li>Login</li>
-                                <li>Ativo/Inativo</li>
-                            </ul>
-                        </li>
-                        <?php foreach($users as $user): ?>
-                        <li>
-                            <ul>
-                                <li><?=$user->ID?></li>
-                                <li><?=$user->NOME?></li>
-                                <li><?=$user->LOGIN?></li>
-                                <li><?=$user->ATIVO?></li>
-                            </ul>
-                        </li>
-                        <?php endforeach;?>
-                    </ul>
-                    <input type="button" value="Novo" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
-                    <input type="button" value="Alterar" onclick="location.href='<?=URL_BASE?>/index.php/User/update/'" />
-                    <input type="button" value="Fechar" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
+					<div id="filtro-lateral">
+						<div id=search_lateral>
+							<header id=lateral>
+								<h1 id="filter_por">Filtrar Por: </h1>
+							</header>
+						</div>
+						<form>	
+						<input type="radio" name="filter" value="cod" checked id="rdio">Código
+						</br>
+						</br>
+						<input type="radio" name="filter" value="name" id="rdio">Nome
+						</br>
+						</br>
+						<input type="radio" name="filter" value="login" id="rdio">Login
+						</br>
+						</br>
+						</form>
+
+					</div>
+					<div id="search">
+							<div id=search_name>
+								<header id=search>
+									<h1 id="filter">Filtro</h1>
+								</header>
+							</div>
+							<form id='name'>Nome: <input id="camp" type="text" name="search_name" required maxlength='40'></form>
+					        <input type="submit" value="Filtrar" id="filter_bottom"> 
+							<input type="submit" value="Mostrar Todos" id="mostrar">
+					</div>
+					<div id="list">
+						<table style="undefined;table-layout: fixed; width: 100%;">
+							<colgroup>
+							<col style="width: 50px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+							</colgroup>
+							<tr>
+								<th>Codigo</th>
+								<th>Nome</th>
+								<th>Login</th>
+								<th>Ativo/Inativo</th>
+							</tr>
+							<?php foreach($users as $user): ?>
+							<tr>
+								<td><?=$user->ID?></td>
+								<td><?=$user->NOME?></td>
+								<td><?=$user->LOGIN?></td>
+								<td><?=$user->ATIVO?></td>
+							</tr>
+							<?php endforeach;?>
+						</table>
+							
+					</div>    
+                    <input type="button" value="Novo" id="novo" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
+                    <input type="button" value="Alterar" id="edicao" onclick="location.href='<?=URL_BASE?>/index.php/User/update/'" />
+                    <input type="button" value="Fechar" id="fecha" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
                 </div>
             <?php endif;?>
 		</main>
