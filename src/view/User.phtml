@@ -57,7 +57,50 @@
                 </div> 
 
             <?php elseif($action == 'update'):?>
-                <div>UPDATE </div> 
+                <div><header id="addusu"><h1 id=adduser>Edição de Usuário</h1></header>
+                    
+                    <form id="add_user"action='<?=URL_BASE?>/index.php/User/save/id/1' method="post">
+                        <label> 
+                            <span id="name">Nome: </span>
+                            <input id='name' type='text' value='<?=@$post->name?>' name='name' required maxlength='40' />
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="login">Login:</span>
+                            <input id='login' type='text' value='<?=@$post->login?>' name='login' required maxlength=40  />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="password">Senha:</span>
+                            <input id='password' type='password' name='password' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <label id="rpassword"> 
+                            <span id="rpassword">Repita senha:</span>
+                            <input id='rpassword' type='password' name='rpassword' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <!--label> 
+                            <span>Email:</span>
+                            <input id='email' type='email' value='<?=@$post->email?>' name='email' required maxlength=40 />
+                        </label-->
+                        <label id="profile"> 
+                            <span id="perfil">Perfil:</span>
+                            <select id ="profile" name='profile' required>
+                                <option value=""> -- Selecione -- </option>
+                                <option value="administrador" <?php echo (@$post->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
+                                <option value="usuario" <?php echo (@$post->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
+                            </select> 
+                        </label>
+                        </br>
+						</br>
+                        <input type="submit" value="Gravar" id="gravar">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                    </form></div> 
 
             <?php else: ?>
             			
