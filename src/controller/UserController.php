@@ -24,18 +24,35 @@ class UserController extends ControllerBase
         $this->view->generateHTML();
     }
 
-    public function add($errors = array(), $post = null)
+    public function add($errors = array(), $user = null)
     {
         $this->view->assign('errors', $errors);
-        $this->view->assign('post', $post);
+        $this->view->assign('user', $user);
         $this->view->assign('action', 'add');
         $this->view->assign('title', 'Cadastrar');
         $this->view->generateHTML();
 
     }
 
-    public function update()
+    public function update($errors = array(), $user = null)
     {
+        $errors = Array();
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        $user = $user ?: new \StdClass();
+
+        try {
+            $this->user->retrieve($id);
+            $user->id = $this->user->getId();
+            $user->name = $this->user->getName();
+            $user->login = $this->user->getLogin();
+            $user->profile = $this->user->getProfile();
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            $errors[] = 'Could not retrieve user using id';
+        }
+
+        $this->view->assign('errors', $errors);
+        $this->view->assign('user', $user);
         $this->view->assign('action', 'update');
         $this->view->assign('title', 'Editar');
         $this->view->generateHTML();
@@ -44,7 +61,6 @@ class UserController extends ControllerBase
 
     public function delete()
     {
-
         $this->listAll();
     }
 
@@ -56,7 +72,9 @@ class UserController extends ControllerBase
         if ($post->password != $post->rpassword) {
             $errors[] = "Password don't match";
         }
+
         try {
+            $this->user->setId((int) $post->id);
             $this->user->setName($post->name);
             $this->user->setLogin($post->login);
             $this->user->setPassword($post->password);
@@ -64,11 +82,12 @@ class UserController extends ControllerBase
             $this->user->save();
         } catch (\Exception $e) {
             error_log($e->getMessage());
-            $errors[] = 'Nao foi possivel salvar o usuario';
+            $errors[] = 'Could not store the user in database';
         }
 
+        $action = $_GET['action'];
         if (count($errors) > 0) {
-            $this->add($errors, $post);
+            $this->$action($errors, $post);
         } else {
             $this->listAll();
         }

@@ -87,15 +87,15 @@ class User extends Model
     }
 
     /**
-     * Save this on database
+     * Insert the user's information in database
      *
-     * Try save user in database <br />
+     * Try insert user in database <br />
      * If an error occur a RuntimeException is thrown
      *
      * @return Integer $id Last id inserted
      * @throws \RuntimeException
      */
-    public function save()
+    public function create()
     {
         $stmt = $this->pdo->prepare("
             INSERT INTO {$this->table} (

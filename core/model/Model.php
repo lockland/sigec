@@ -46,7 +46,17 @@ abstract class Model
         }
     }
 
-    abstract public function save();
+    public function save()
+    {
+        if ($this->getId() == 0) {
+            return $this->create();
+        }
+        
+        return $this->update();
+    }
+
+    abstract public function getId();
+    abstract public function create();
     abstract public function delete($id);
     abstract public function fetchAll();
     abstract public function retrieve($id);

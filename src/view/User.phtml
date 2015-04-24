@@ -4,50 +4,47 @@
 	<body>
         <?php include('templates/header.phtml');?>
         <?php include('templates/nav.phtml');?>
-        <main id='users-list'>
+        <main>
             <?php if($action == 'add'):?>
                 <div id="add">
-				    <header id="addusu"><h1 id=adduser>Inclusão de Usuário</h1></header>
+				    <h1 id='adduser'>Inclusão de Usuário</h1>
                     
-                    <form id="add_user"action='<?=URL_BASE?>/index.php/User/save' method="post">
+                    <form id="add_user"action='<?=URL_BASE?>/index.php/User/save/action/add' method="post">
                         <label> 
                             <span id="name">Nome: </span>
-                            <input id='name' type='text' value='<?=@$post->name?>' name='name' required maxlength='40' />
+                            <input id='name' type='text' value='<?=@$user->name?>' name='name' required maxlength='40' />
                         </label>
                         </br>
 						</br>
 						<label> 
                             <span id="login">Login:</span>
-                            <input id='login' type='text' value='<?=@$post->login?>' name='login' required maxlength=40  />
+                            <input id='login' type='text' value='<?=@$user->login?>' name='login' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="password">Senha:</span>
-                            <input id='password' type='password' name='password' required maxlength=40 />
+                            <input id='password' type='password' value='<?=@$user->password?>'name='password' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label id="rpassword"> 
                             <span id="rpassword">Repita senha:</span>
-                            <input id='rpassword' type='password' name='rpassword' required maxlength=40 />
+                            <input id='rpassword' type='password'value='<?=@$user->password?>' name='rpassword' required maxlength=40 />
                         </label>
 						</br>
 						</br>
-                        <!--label> 
-                            <span>Email:</span>
-                            <input id='email' type='email' value='<?=@$post->email?>' name='email' required maxlength=40 />
-                        </label-->
                         <label id="profile"> 
                             <span id="perfil">Perfil:</span>
                             <select id ="profile" name='profile' required>
                                 <option value=""> -- Selecione -- </option>
-                                <option value="administrador" <?php echo (@$post->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
-                                <option value="usuario" <?php echo (@$post->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
+                                <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
+                                <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
                             </select> 
                         </label>
                         </br>
 						</br>
+                        <input type="hidden" name='id' value='0'/>
                         <input type="submit" value="Gravar" id="gravar">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form>
@@ -57,18 +54,19 @@
                 </div> 
 
             <?php elseif($action == 'update'):?>
-                <div><header id="addusu"><h1 id=adduser>Edição de Usuário</h1></header>
+                <div>
+                    <h1 id=update-user>Edição de Usuário</h1>
                     
-                    <form id="add_user"action='<?=URL_BASE?>/index.php/User/save/id/1' method="post">
+                    <form id="update_user" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
                         <label> 
                             <span id="name">Nome: </span>
-                            <input id='name' type='text' value='<?=@$post->name?>' name='name' required maxlength='40' />
+                            <input id='name' type='text' value='<?=@$user->name?>' name='name' required maxlength='40' />
                         </label>
                         </br>
 						</br>
 						<label> 
                             <span id="login">Login:</span>
-                            <input id='login' type='text' value='<?=@$post->login?>' name='login' required maxlength=40  />
+                            <input id='login' type='text' value='<?=@$user->login?>' name='login' required maxlength=40  />
                         </label>
 						</br>
 						</br>
@@ -84,23 +82,23 @@
                         </label>
 						</br>
 						</br>
-                        <!--label> 
-                            <span>Email:</span>
-                            <input id='email' type='email' value='<?=@$post->email?>' name='email' required maxlength=40 />
-                        </label-->
                         <label id="profile"> 
                             <span id="perfil">Perfil:</span>
                             <select id ="profile" name='profile' required>
                                 <option value=""> -- Selecione -- </option>
-                                <option value="administrador" <?php echo (@$post->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
-                                <option value="usuario" <?php echo (@$post->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
+                                <option value="administrador" <?=(@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
+                                <option value="usuario" <?=(@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
                             </select> 
                         </label>
                         </br>
 						</br>
+                        <input type="hidden" name='id' value='<?=@$user->id ? $user->id : 0 ?>'/>
                         <input type="submit" value="Gravar" id="gravar">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form></div> 
+                    <?php foreach($errors as $erro): ?>
+                        <span><?=$erro?></span>
+                    <?php endforeach;?>
 
             <?php else: ?>
             			
@@ -141,33 +139,41 @@
 							<col style="width: 100px">
 							<col style="width: 100px">
 							<col style="width: 100px">
-							</colgroup>
-							<tr>
-								<th>Codigo</th>
-								<th>Nome</th>
-								<th>Login</th>
-								<th>Ativo/Inativo</th>
-							</tr>
-							<?php foreach($users as $user): ?>
-							<tr>
-								<td><?=$user->ID?></td>
-								<td><?=$user->NOME?></td>
-								<td><?=$user->LOGIN?></td>
-								<td><?=$user->ATIVO?></td>
-							</tr>
-							<?php endforeach;?>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nome</th>
+                                    <th>Login</th>
+                                    <th>Ativo/Inativo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($users as $user): ?>
+                                <tr>
+                                    <td><?=$user->ID?></td>
+                                    <td><?=$user->NOME?></td>
+                                    <td><?=$user->LOGIN?></td>
+                                    <td><?=$user->ATIVO?></td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
 						</table>
 							
-					</div>    
+                    </div>
+                    <input type="hidden" name='id' value='0'/>
                     <input type="button" value="Novo" id="novo" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
-                    <input type="button" value="Alterar" id="edicao" onclick="location.href='<?=URL_BASE?>/index.php/User/update/'" />
+                    <input type="button" value="Alterar" id="edicao" onclick="userUpdate();" />
                     <input type="button" value="Fechar" id="fecha" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
                 </div>
             <?php endif;?>
+            <input type="hidden" id='url-base' value='<?=URL_BASE?>'/>
 		</main>
         <?php include('templates/aside.phtml');?>
 		<div id='clear'></div>
-		<?php include('templates/footer.phtml');?>
+        <?php include('templates/footer.phtml');?>
+        <script src='<?=PUBLIC_URL?>/js/jquery-1.11.2.min.js'></script>
+        <script src='<?=PUBLIC_URL?>/js/sigec.js'></script>
 	</body>
 </html>
 
