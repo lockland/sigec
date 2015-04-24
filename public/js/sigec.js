@@ -10,7 +10,7 @@ function setRowClick(){
 
 function userUpdate(){
     var id = $('input[name=id]').val();
-    if (id == "") {
+    if (id == 0) {
         alert("Clique em um dos itens da lista");
         return false;
     }
