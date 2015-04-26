@@ -7,8 +7,9 @@
         <main>
             <?php if($action == 'add'):?>
                 <div id="add">
+				<header id="addusers">
 				    <h1 id='adduser'>Inclusão de Usuário</h1>
-                    
+                 </header>   
                     <form id="add_user"action='<?=URL_BASE?>/index.php/User/save/action/add' method="post">
                         <label> 
                             <span id="name">Nome: </span>
@@ -45,7 +46,7 @@
                         </br>
 						</br>
                         <input type="hidden" name='id' value='0'/>
-                        <input type="submit" value="Gravar" id="gravar">
+                        <input type="submit" value="Gravar" id="record">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form>
                     <?php foreach($errors as $erro): ?>
@@ -54,10 +55,11 @@
                 </div> 
 
             <?php elseif($action == 'update'):?>
-                <div>
-                    <h1 id=update-user>Edição de Usuário</h1>
-                    
-                    <form id="update_user" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
+                <div id="add">
+				<header id="addusers">
+                    <h1 id="adduser">Edição de Usuário</h1>
+                </header>    
+                    <form id="add_user" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
                         <label> 
                             <span id="name">Nome: </span>
                             <input id='name' type='text' value='<?=@$user->name?>' name='name' required maxlength='40' />
@@ -90,10 +92,20 @@
                                 <option value="usuario" <?=(@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
                             </select> 
                         </label>
+						</br>
+						</br>
+						<label id="profile"> 
+                            <span id="perfil">Estado:</span>
+                            <select id ="profile" name='status' required>
+                                <option value=""> -- Selecione -- </option>
+                                <option value="ativo" <?=(@$user->status == 'ativo') ? 'selected' : '' ?> >Ativo</option>
+                                <option value="inativo" <?=(@$user->status == 'inativo') ? 'selected' : '' ?> >Inativo</option>
+                            </select> 
+                        </label>
                         </br>
 						</br>
                         <input type="hidden" name='id' value='<?=@$user->id ? $user->id : 0 ?>'/>
-                        <input type="submit" value="Gravar" id="gravar">
+                        <input type="submit" value="Gravar" id="record">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form></div> 
                     <?php foreach($errors as $erro): ?>
@@ -103,10 +115,10 @@
             <?php else: ?>
             			
                 <div id='users-list'>
-					<div id="filtro-lateral">
-						<div id=search_lateral>
-							<header id=lateral>
-								<h1 id="filter_por">Filtrar Por: </h1>
+					<div id="filter-left">
+						<div id=search_left>
+							<header id=left>
+								<h1 id="filter_per">Filtrar Por: </h1>
 							</header>
 						</div>
 						<form>	
@@ -130,7 +142,7 @@
 							</div>
 							<form id='name'>Nome: <input id="camp" type="text" name="search_name" required maxlength='40'></form>
 					        <input type="submit" value="Filtrar" id="filter_bottom"> 
-							<input type="submit" value="Mostrar Todos" id="mostrar">
+							<input type="submit" value="Mostrar Todos" id="show_all">
 					</div>
 					<div id="list">
 						<table style="undefined;table-layout: fixed; width: 100%;">
@@ -162,9 +174,9 @@
 							
                     </div>
                     <input type="hidden" name='id' value='0'/>
-                    <input type="button" value="Novo" id="novo" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
-                    <input type="button" value="Alterar" id="edicao" onclick="userUpdate();" />
-                    <input type="button" value="Fechar" id="fecha" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
+                    <input type="button" value="Novo" id="new" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
+                    <input type="button" value="Alterar" id="update" onclick="userUpdate();" />
+                    <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
                 </div>
             <?php endif;?>
             <input type="hidden" id='url-base' value='<?=URL_BASE?>'/>
