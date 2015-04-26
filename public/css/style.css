@@ -177,7 +177,7 @@ div#list{
 
     min-height: 300px;
     margin-left: 20px;
-	margin-top:5%;
+	margin-top:8%;
 	margin-bottom:20px;
     padding: 0px;
     float: center;
@@ -185,7 +185,7 @@ div#list{
     border-radius: 5px;
     width: 95%;
 }
-div#users-list input#novo{
+div#users-list input#new{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
@@ -201,7 +201,7 @@ div#users-list input#novo{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 290px;
 }
-div#users-list input#edicao{
+div#users-list input#update{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
@@ -217,7 +217,7 @@ div#users-list input#edicao{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 20px;
 }
-div#users-list input#fecha{
+div#users-list input#close{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
@@ -234,22 +234,22 @@ div#users-list input#fecha{
     margin-left: 20px;
 }
 
-div#filtro-lateral{
+div#filter-left{
 
     min-height: 60px;
     margin-left: 20px;
-	margin-top:5%%;
+	margin-top:5%;
     border: 2px solid #02735f;
     border-radius: 5px;
     width:15%;
 }
-div#filtro-lateral form{
+div#filter-left form{
  margin-top:10px;
  font-size:14px;
  font-family: 'sans-serif';
  font-weight: bold;
  }
- div#filtro-lateral label{
+ div#filter-left label{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
@@ -286,7 +286,7 @@ height: 20px;
 div#search{
 
     min-height: 100px;
-    margin-left: 260px;
+    margin-left: 220px;
 	margin-top:-140px;
     border: 2px solid #02735f;
     border-radius: 5px;
@@ -328,7 +328,7 @@ header#search{
 	color:black;
  
  }
-header#lateral{
+header#left{
 
     color: #f0f0f0;
     height: 25px;
@@ -344,7 +344,7 @@ header#lateral{
 
 }
 
- header h1#filter_por{
+ header h1#filter_per{
  
     font-size: 18px;
     text-align: center;
@@ -354,7 +354,7 @@ header#lateral{
  }
 
 div#search form#name{
-margin-left:25%;
+margin-left:30%;
 margin-top:4%;
 border-radius: 5px;
 font-weight: bold;
@@ -381,7 +381,7 @@ div#search input#filter_bottom{
     margin-left: 180px;
 	font-weight: bold;
 }
-div#search input#mostrar{
+div#search input#show_all{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
@@ -398,7 +398,7 @@ div#search input#mostrar{
     margin-left: 20px;
 	font-weight: bold;
 }
-header#addusu{
+header#addusers{
 
     color: #f0f0f0;
     height: 25px;
@@ -464,7 +464,7 @@ div#add form#add_user{
 
 margin-top:45px;
 }
-div#add input#gravar{
+div#add input#record{
     border: 1px solid #02735f;
     border-radius: 5px;
     background: rgba(237,245,243,1);
