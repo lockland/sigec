@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<?php include('templates/head.phtml');?>
+	<body>
+        <?php include('templates/header.phtml');?>
+        <?php include('templates/nav.phtml');?>
+        <main>
+            <?php if($action == 'add'):?>
+                <div id="add">
+				<header id="addclients">
+				    <h1 id='addclient'>Inclusão de Cliente</h1>
+                 </header>   
+                    <form id="add_client"action='<?=URL_BASE?>/index.php/Client/save/action/add' method="post">
+                        <label> 
+                            <span id="name">Nome: </span>
+                            <input id='name' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="cpf">CPF/CNPJ:</span>
+                            <input id='cpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="phone">Telefone:</span>
+                            <input id='phone' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="street">Endereço:</span>
+                            <input id='street' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="mother_name">Nome da Mãe:</span>
+                            <input id='mother_name' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <label id="state"> 
+                            <span id="state">Estado:</span>
+                            <select id ="state" name='state' required>
+                                <option value=""> -- Selecione -- </option>
+                                <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
+                                <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
+                            </select> 
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="city">Cidade:</span>
+                            <input id='city' type='text' value='<?=@$client->cidade?>' name='city' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="email">Email:</span>
+                            <input id='email' type='text' value='<?=@$client->email?>' name='email' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <input type="hidden" name='id' value='0'/>
+                        <input type="submit" value="Gravar" id="record">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                    </form>
+                    <?php foreach($errors as $erro): ?>
+                        <span><?=$erro?></span>
+                    <?php endforeach;?>
+                </div> 
+
+            <?php elseif($action == 'update'):?>
+                <div id="add">
+				<header id="addclients">
+                    <h1 id="addclient">Edição de Usuário</h1>
+                </header>    
+                    <form id="add_client" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
+                        <label> 
+                            <span id="name">Nome: </span>
+                            <input id='name' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="cpf">CPF/CNPJ:</span>
+                            <input id='cpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="phone">Telefone:</span>
+                            <input id='phone' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="street">Endereço:</span>
+                            <input id='street' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="mother_name">Nome da Mãe:</span>
+                            <input id='mother_name' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <label id="state"> 
+                            <span id="state">Estado:</span>
+                            <select id ="state" name='state' required>
+                                <option value=""> -- Selecione -- </option>
+                                <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
+                                <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
+                            </select> 
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="city">Cidade:</span>
+                            <input id='city' type='text' value='<?=@$client->cidade?>' name='city' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="email">Email:</span>
+                            <input id='email' type='text' value='<?=@$client->email?>' name='email' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+                        <input type="hidden" name='id' value='0'/>
+                        <input type="submit" value="Atualizar" id="record">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                    </form></div> 
+                    <?php foreach($errors as $erro): ?>
+                        <span><?=$erro?></span>
+                    <?php endforeach;?>
+
+            <?php else: ?>
+            			
+                <div id='users-list'>
+					<div id="filter-left">
+						<div id=search_left>
+							<header id=left>
+								<h1 id="filter_per">Filtrar Por: </h1>
+							</header>
+						</div>
+						<form>	
+						<input type="radio" name="filter" value="cod" checked id="rdio">Código
+						</br>
+						</br>
+						<input type="radio" name="filter" value="name" id="rdio">Nome
+						</br>
+						</br>
+						</form>
+					</div>
+					<div id="search">
+							<div id=search_name>
+								<header id=search>
+									<h1 id="filter">Filtro</h1>
+								</header>
+							</div>
+							<form id='name'>Nome: <input id="camp" type="text" name="search_name" required maxlength='40'></form>
+					        <input type="submit" value="Filtrar" id="filter_bottom"> 
+							<input type="submit" value="Mostrar Todos" id="show_all">
+					</div>
+					<div id="list-client">
+						<table style="undefined;table-layout: fixed; width: 100%;">
+							<colgroup>
+							<col style="width: 50px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nome</th>
+                                    <th>Telefone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($clients as $client): ?>
+                                <tr>
+                                    <td><?=$client->ID?></td>
+                                    <td><?=$client->NOME?></td>
+                                    <td><?=$client->TELEFONE?></td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
+						</table>
+							
+                    </div>
+                    <input type="hidden" name='id' value='0'/>
+                    <input type="button" value="Novo" id="new" onclick="location.href='<?=URL_BASE?>/index.php/Client/add'" />
+                    <input type="button" value="Alterar" id="update" onclick="clientUpdate();" />
+                    <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
+                </div>
+            <?php endif;?>
+            <input type="hidden" id='url-base' value='<?=URL_BASE?>'/>
+		</main>
+        <?php include('templates/aside.phtml');?>
+		<div id='clear'></div>
+        <?php include('templates/footer.phtml');?>
+        <script src='<?=PUBLIC_URL?>/js/jquery-1.11.2.min.js'></script>
+        <script src='<?=PUBLIC_URL?>/js/sigec.js'></script>
+	</body>
+</html>
+
