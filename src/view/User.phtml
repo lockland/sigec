@@ -98,8 +98,8 @@
                             <span id="perfil">Estado:</span>
                             <select id ="profile" name='status' required>
                                 <option value=""> -- Selecione -- </option>
-                                <option value="ativo" <?=(@$user->status == 'ativo') ? 'selected' : '' ?> >Ativo</option>
-                                <option value="inativo" <?=(@$user->status == 'inativo') ? 'selected' : '' ?> >Inativo</option>
+                                <option value="1" <?=(@$user->isEnable) ? 'selected' : '' ?> >Ativo</option>
+                                <option value="0" <?=(@$user->isEnable) ? '' : 'selected' ?> >Inativo</option>
                             </select> 
                         </label>
                         </br>

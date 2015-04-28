@@ -26,7 +26,7 @@ class User extends Model
         return $this;
     }
 
-    public function isEnable($enable = true)
+    public function setEnable($enable = true)
     {
         $this->invalidBoolean($enable, 'Enable');
         $this->ATIVO = $enable;
@@ -59,6 +59,11 @@ class User extends Model
         $this->invalidStringArgument($profile, 'Profile');
         $this->PERFIL_USUARIO = $profile;
         return $this;
+    }
+
+    public function isEnable()
+    {
+        return !!$this->ATIVO;
     }
 
     public function getId()
@@ -201,7 +206,7 @@ class User extends Model
         $this->LOGIN = $resultset->LOGIN;
         $this->SENHA = $resultset->SENHA;
         $this->PERFIL_USUARIO = $resultset->PERFIL_USUARIO;
-        $this->ATIVO = $resultset->ATIVO;
+        $this->ATIVO = !!$resultset->ATIVO;
     }
 
     public function fetchAll()

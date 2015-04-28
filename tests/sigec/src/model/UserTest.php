@@ -195,5 +195,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->model->setLogin('login1');
         $this->model->setPassword('pass1');
         $this->model->setProfile('perfil_usuario1');
+        $this->model->setEnable(false);
     }
 }

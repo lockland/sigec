@@ -46,6 +46,7 @@ class UserController extends ControllerBase
             $user->name = $this->user->getName();
             $user->login = $this->user->getLogin();
             $user->profile = $this->user->getProfile();
+            $user->isEnable = $this->user->isEnable();
         } catch (\Exception $e) {
             error_log($e->getMessage());
             $errors[] = 'Could not retrieve user using id';
@@ -79,6 +80,9 @@ class UserController extends ControllerBase
             $this->user->setLogin($post->login);
             $this->user->setPassword($post->password);
             $this->user->setProfile($post->profile);
+            $this->user->setEnable(
+                (isset($post->status) && $post->status == 1)
+            );
             $this->user->save();
         } catch (\Exception $e) {
             error_log($e->getMessage());
