@@ -2,7 +2,7 @@
 
 namespace Sigec\view;
 
-class User extends ViewBase
+class Client extends ViewBase
 {
     public function __construct()
     {
