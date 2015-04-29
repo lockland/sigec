@@ -4,6 +4,7 @@ namespace Sigec\controller;
 
 use Core\controller\Controller;
 use Core\helpers\Session;
+use Core\helpers\Redirector;
 
 class ControllerBase extends Controller
 {
@@ -12,13 +13,14 @@ class ControllerBase extends Controller
     public function __construct()
     {
         $session = new Session();
+        $redirector = new Redirector(DEFAULT_CONTROLLER, DEFAULT_ACTION);
 
         if (!$session->checkSession('user')) {
             $session->destroy();
-            header('location: ' . URL_BASE);
-        } else {
-            $this->user = unserialize($session->selectSession('user'));
+            $redirector->redirect();
         }
+
+        $this->user = unserialize($session->selectSession('user'));
     }
 
     public function index()

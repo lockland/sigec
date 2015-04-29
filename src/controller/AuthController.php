@@ -4,6 +4,7 @@ namespace Sigec\controller;
 
 use Core\controller\Controller;
 use Core\helpers\Session;
+use Core\helpers\Redirector;
 use Sigec\view\Login;
 use Sigec\model\User;
 
@@ -11,7 +12,7 @@ class AuthController extends Controller
 {
     private $view = null;
     private $session = null;
-    private $mainUrl = "";
+    private $redirector = null;
     private $pdo;
 
     public function __construct(\PDO $pdo = null)
@@ -23,7 +24,7 @@ class AuthController extends Controller
         );
 
         $this->session = new Session();
-        $this->mainUrl = 'location: ' . URL_BASE . '/index.php/Main';
+        $this->redirector = new Redirector('Main', DEFAULT_ACTION);
         $this->view = new Login();
     }
 
@@ -46,8 +47,7 @@ class AuthController extends Controller
             $user->closePdo();
 
             $this->session->createSession('user', serialize($user));
-            header($this->mainUrl);
-
+            $this->redirector->redirect();
         } catch (\Exception $e) {
             error_log($e->getMessage());
             $this->view->assign(
@@ -61,13 +61,13 @@ class AuthController extends Controller
     public function logout($message = null)
     {
         $this->session->destroy();
-        header('location: ' . URL_BASE);
+        $this->redirector->redirect();
     }
 
     public function isLogged()
     {
         if ($this->session->checkSession('user')) {
-            header($this->mainUrl);
+            $this->redirector->redirect();
         }
     }
 }
