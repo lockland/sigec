@@ -18,8 +18,8 @@ class AuthController extends Controller
     public function __construct(\PDO $pdo = null)
     {
         $this->pdo = $pdo ?: new \PDO(
-            'mysql:host='.DB_HOST.';dbname='.DB_BASE, 
-            DB_USER, 
+            'mysql:host='.DB_HOST.';dbname='.DB_BASE,
+            DB_USER,
             DB_PASS
         );
 
