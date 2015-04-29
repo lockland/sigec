@@ -80,8 +80,8 @@ nav {
 nav ul {
     list-style: none;
     height: 50px;
-    width: 90%;
-	margin-left:25%
+    width: 55%;
+    margin: 0px auto;
 }
 
 nav ul li {
