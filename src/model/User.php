@@ -239,4 +239,32 @@ class User extends Model
 
         return (int) $stmt->rowCount();
     }
+
+    public function filter($field)
+    {
+        $this->invalidStringArgument($field, 'Filter field');
+
+        $field = "%{$field}%";
+        $stmt = $this->pdo->prepare("
+            SELECT 
+                * 
+            FROM 
+                {$this->table} 
+            WHERE 
+                1=1 
+                AND ID LIKE :FIELD 
+                OR NOME LIKE :FIELD 
+                OR LOGIN LIKE :FIELD
+        ");
+
+        $stmt->bindParam(':FIELD', $field, \PDO::PARAM_STR);
+        
+        if (!$stmt->execute()) {
+            throw new \RuntimeException('Fail to filter users');
+        }
+
+        $resultset = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        $stmt->closeCursor();
+        return $resultset;
+    }
 }

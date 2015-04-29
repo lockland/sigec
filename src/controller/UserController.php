@@ -3,6 +3,7 @@
 namespace Sigec\controller;
 
 use Sigec\view\User as View;
+use Core\helpers\Redirector;
 
 class UserController extends ControllerBase
 {
@@ -19,12 +20,11 @@ class UserController extends ControllerBase
 
     public function listAll()
     {
-        $this->view->assign('title', 'Listagem');
         $this->view->assign('users', $this->user->fetchAll());
         $this->view->generateHTML();
     }
 
-    public function add($errors = array(), $user = null)
+    public function add($errors = [], $user = null)
     {
         $this->view->assign('errors', $errors);
         $this->view->assign('user', $user);
@@ -34,9 +34,9 @@ class UserController extends ControllerBase
 
     }
 
-    public function update($errors = array(), $user = null)
+    public function update($errors = [], $user = null)
     {
-        $errors = Array();
+        $errors = [];
         $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
         $user = $user ?: new \StdClass();
 
@@ -62,12 +62,13 @@ class UserController extends ControllerBase
 
     public function delete()
     {
-        $this->listAll();
+        $redirector = new Redirector('User', 'listAll');
+        $redirector->redirect();
     }
 
     public function save()
     {
-        $errors = Array();
+        $errors = [];
         $post = (object) $_POST;
 
         if ($post->password != $post->rpassword) {
@@ -90,12 +91,18 @@ class UserController extends ControllerBase
         }
 
         $action = $_GET['action'];
-        if (count($errors) > 0) {
-            $this->$action($errors, $post);
-        } else {
-            $this->listAll();
+        
+        if (count($errors) <= 0) {
+            $redirector = new Redirector('User', 'listAll');
+            $redirector->redirect();
         }
+
+        $this->$action($errors, $post);
     }
 
+    public function filter()
+    {
+        $this->view->assign('users', $this->user->filter($_POST['field']));
+        $this->view->generateHTML();
+    }
 }
-
