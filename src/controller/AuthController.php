@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function __construct(\PDO $pdo = null)
     {
         $this->pdo = $pdo ?: new \PDO(
-            'mysql:host='.DB_HOST.';dbname='.DB_BASE,
+            DB_DSN,
             DB_USER,
             DB_PASS
         );
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
     public function index()
     {
-        $this->view->assign('errors', array());
+        $this->view->assign('errors', []);
         $this->view->generateHTML();
     }
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
             error_log($e->getMessage());
             $this->view->assign(
                 'errors',
-                array("Nao foi possivel consultar o usuario informado")
+                ["Nao foi possivel consultar o usuario informado"]
             );
             $this->view->generateHTML();
         }

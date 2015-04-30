@@ -78,44 +78,44 @@ class SystemTest extends \PHPUnit_Framework_TestCase
     {
         $system = $this->verifyUri('/product/sales/var/value');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value'), $_GET),
+            $this->isArraysEquals(['var' => 'value'], $_GET),
             'Assert 1: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2/value2');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value', 'var2' => 'value2'), $_GET),
+            $this->isArraysEquals(['var' => 'value', 'var2' => 'value2'], $_GET),
             'Assert 2: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2/value2/');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value', 'var2' => 'value2'), $_GET),
+            $this->isArraysEquals(['var' => 'value', 'var2' => 'value2'], $_GET),
             'Assert 3: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2/value2////');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value', 'var2' => 'value2'), $_GET),
+            $this->isArraysEquals(['var' => 'value', 'var2' => 'value2'], $_GET),
             'Assert 4: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2/');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value', 'var2' => ''), $_GET),
+            $this->isArraysEquals(['var' => 'value', 'var2' => ''], $_GET),
             'Assert 5: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2////');
         $this->assertTrue(
-            $this->isArraysEquals(array('var' => 'value', 'var2' => ''), $_GET),
+            $this->isArraysEquals(['var' => 'value', 'var2' => ''], $_GET),
             'Assert 6: Arrays is not equal'
         );
 
         $system = $this->verifyUri('/product/sales/var/value/var2/value2//value3/var4/value4');
         $this->assertTrue(
             $this->isArraysEquals(
-                array('var' => 'value', 'var2' => 'value2', 'var4' => 'value4'),
+                ['var' => 'value', 'var2' => 'value2', 'var4' => 'value4'],
                 $_GET
             ),
             'Assert 7: Arrays is not equal'
