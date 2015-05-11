@@ -354,7 +354,7 @@ header#left{
  }
 
 div#search form#name{
-margin-left:30%;
+margin-left:25%;
 margin-top:4%;
 border-radius: 5px;
 font-weight: bold;
@@ -378,7 +378,7 @@ div#search input#filter_bottom{
     background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
-    margin-left: 180px;
+    margin-left: 10px;
 	font-weight: bold;
 }
 div#search input#show_all{
@@ -394,13 +394,18 @@ div#search input#show_all{
     background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
-    margin-left: 20px;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );	
 	font-weight: bold;
 }
-header#addusers{
 
-    color: #f0f0f0;
+h1#adduser{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+	/*color: #f0f0f0;*/
     height: 25px;
     background: rgba(99,169,156,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
@@ -410,16 +415,6 @@ header#addusers{
     background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
-
-
-}
-header h1#adduser{
- 
-    font-size: 18px;
-    text-align: center;
-    top: 16%;
-    position: relative;
-	color:black;
  
  }
  
@@ -507,7 +502,6 @@ margin-top:10px;
 }
 div#add input#login {
 border: 1px solid #02735f;
-
 }
 div#add input#name {
 
@@ -529,10 +523,13 @@ border: 1px solid #02735f;
 
 /*======= List Client Window ===================*/ 
 
-
-header#addclients{
-
-    color: #f0f0f0;
+h1#addclient{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
     height: 25px;
     background: rgba(99,169,156,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
@@ -542,17 +539,122 @@ header#addclients{
     background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
-
-
-}
-header h1#addclient{
- 
-    font-size: 18px;
-    text-align: center;
-    top: 16%;
-    position: relative;
-	color:black;
  
  }
  
- 
+div#add form#add_client{
+
+margin-top:45px;
+}
+
+div#add  span#name_client {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#namecli {
+border: 1px solid #02735f;
+}
+
+div#add  span#cpf_cli {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#clicpf {
+border: 1px solid #02735f;
+}
+
+div#add  span#cli_phone {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#phoneclient{
+border: 1px solid #02735f;
+}
+
+div#add  span#street_cli {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#streetclient{
+border: 1px solid #02735f;
+}
+
+div#add  span#mother_name {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#mothername{
+border: 1px solid #02735f;
+}
+
+div#add  span#state {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add select#state_list{
+border: 1px solid #02735f;
+}
+
+div#add  span#city_client {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#city{
+border: 1px solid #02735f;
+}
+
+div#add  span#email_client {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#email{
+border: 1px solid #02735f;
+}
+
+div#add input#save{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-size: 14px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-top:80px;
+	margin-left:320px;
+	font-weight: bold;
+}
+
+div#list-client{
+
+    min-height: 300px;
+    margin-left: 20px;
+	margin-top:8%;
+	margin-bottom:20px;
+    padding: 0px;
+    float: center;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    width: 95%;
+}
