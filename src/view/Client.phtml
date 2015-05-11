@@ -7,43 +7,43 @@
         <main>
             <?php if($action == 'add'):?>
                 <div id="add">
-				<header id="addclients">
+				
 				    <h1 id='addclient'>Inclusão de Cliente</h1>
-                 </header>   
+                  
                     <form id="add_client"action='<?=URL_BASE?>/index.php/Client/save/action/add' method="post">
                         <label> 
-                            <span id="name">Nome: </span>
-                            <input id='name' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
+                            <span id="name_client">Nome: </span>
+                            <input id='namecli' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
                         </label>
                         </br>
 						</br>
 						<label> 
-                            <span id="cpf">CPF/CNPJ:</span>
-                            <input id='cpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
+                            <span id="cpf_cli">CPF/CNPJ:</span>
+                            <input id='clicpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
-                            <span id="phone">Telefone:</span>
-                            <input id='phone' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
+                            <span id="cli_phone">Telefone:</span>
+                            <input id='phoneclient' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label> 
-                            <span id="street">Endereço:</span>
-                            <input id='street' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
+                            <span id="street_cli">Endereço:</span>
+                            <input id='streetclient' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="mother_name">Nome da Mãe:</span>
-                            <input id='mother_name' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
+                            <input id='mothername' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label id="state"> 
                             <span id="state">Estado:</span>
-                            <select id ="state" name='state' required>
+                            <select id ="state_list" name='state' required>
                                 <option value=""> -- Selecione -- </option>
                                 <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
                                 <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
@@ -52,19 +52,19 @@
                         </br>
 						</br>
 						<label> 
-                            <span id="city">Cidade:</span>
+                            <span id="city_client">Cidade:</span>
                             <input id='city' type='text' value='<?=@$client->cidade?>' name='city' required maxlength=40 />
                         </label>
 						</br>
 						</br>
 						<label> 
-                            <span id="email">Email:</span>
+                            <span id="email_client">Email:</span>
                             <input id='email' type='text' value='<?=@$client->email?>' name='email' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <input type="hidden" name='id' value='0'/>
-                        <input type="submit" value="Gravar" id="record">
+                        <input type="submit" value="Gravar" id="save">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
                     </form>
                     <?php foreach($errors as $erro): ?>
@@ -74,43 +74,43 @@
 
             <?php elseif($action == 'update'):?>
                 <div id="add">
-				<header id="addclients">
-                    <h1 id="addclient">Edição de Usuário</h1>
-                </header>    
-                    <form id="add_client" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
+				
+				    <h1 id='client'>Edição de Cliente</h1>
+                  
+                    <form id="add_client"action='<?=URL_BASE?>/index.php/Client/save/action/add' method="post">
                         <label> 
-                            <span id="name">Nome: </span>
-                            <input id='name' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
+                            <span id="name_client">Nome: </span>
+                            <input id='namecli' type='text' value='<?=@$client->name?>' name='name' required maxlength='40' />
                         </label>
                         </br>
 						</br>
 						<label> 
-                            <span id="cpf">CPF/CNPJ:</span>
-                            <input id='cpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
+                            <span id="cpf_cli">CPF/CNPJ:</span>
+                            <input id='clicpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
-                            <span id="phone">Telefone:</span>
-                            <input id='phone' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
+                            <span id="cli_phone">Telefone:</span>
+                            <input id='phoneclient' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label> 
-                            <span id="street">Endereço:</span>
-                            <input id='street' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
+                            <span id="street_cli">Endereço:</span>
+                            <input id='streetclient' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="mother_name">Nome da Mãe:</span>
-                            <input id='mother_name' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
+                            <input id='mothername' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label id="state"> 
                             <span id="state">Estado:</span>
-                            <select id ="state" name='state' required>
+                            <select id ="state_list" name='state' required>
                                 <option value=""> -- Selecione -- </option>
                                 <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
                                 <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
@@ -119,21 +119,21 @@
                         </br>
 						</br>
 						<label> 
-                            <span id="city">Cidade:</span>
+                            <span id="city_client">Cidade:</span>
                             <input id='city' type='text' value='<?=@$client->cidade?>' name='city' required maxlength=40 />
                         </label>
 						</br>
 						</br>
 						<label> 
-                            <span id="email">Email:</span>
+                            <span id="email_client">Email:</span>
                             <input id='email' type='text' value='<?=@$client->email?>' name='email' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <input type="hidden" name='id' value='0'/>
-                        <input type="submit" value="Atualizar" id="record">
+                        <input type="submit" value="Gravar" id="save">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
-                    </form></div> 
+                    </form>
                     <?php foreach($errors as $erro): ?>
                         <span><?=$erro?></span>
                     <?php endforeach;?>
@@ -162,15 +162,16 @@
 									<h1 id="filter">Filtro</h1>
 								</header>
 							</div>
-							<form id='name'>Nome: <input id="camp" type="text" name="search_name" required maxlength='40'></form>
-					        <input type="submit" value="Filtrar" id="filter_bottom"> 
-							<input type="submit" value="Mostrar Todos" id="show_all">
+                            <form id='name' action='<?=URL_BASE?>/index.php/User/filter' method='post'>
+                                Nome: <input id="camp" type="text" name="field" required maxlength='40'>
+                                <input type="submit" value="Filtrar" id="filter_bottom"> 
+                                <input type="submit" value="Mostrar Todos" id="show_all" onclick="location.href='<?=URL_BASE?>/index.php/User/listAll'">
+                            </form>
 					</div>
 					<div id="list-client">
 						<table style="undefined;table-layout: fixed; width: 100%;">
 							<colgroup>
 							<col style="width: 50px">
-							<col style="width: 100px">
 							<col style="width: 100px">
 							<col style="width: 100px">
                             </colgroup>
