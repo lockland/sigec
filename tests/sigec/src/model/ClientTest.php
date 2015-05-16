@@ -168,7 +168,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->model->setMotherName('motherName');
         $this->model->setAddress('address');
         $this->model->setPhone('phone');
-        $this->model->setCfpOrCnpj('cpfOrCnpj');
+        $this->model->setCpfOrCnpj('cpfOrCnpj');
         $this->model->setEmail('email');
         $this->model->setCity('city');
         $this->model->setState('state');

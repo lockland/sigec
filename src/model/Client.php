@@ -84,14 +84,14 @@ class Client extends Model
         return $this->TEL;
     }
 
-    public function setCfpOrCnpj($cpfOrCnpj)
+    public function setCpfOrCnpj($cpfOrCnpj)
     {
         $this->invalidStringArgument($cpfOrCnpj, 'CPF or CNPJ');
         $this->CPF_CNPJ = $cpfOrCnpj;
         return $this;
     }
 
-    public function getCfpOrCnpj()
+    public function getCpfOrCnpj()
     {
         return $this->CPF_CNPJ;
     }
@@ -117,7 +117,7 @@ class Client extends Model
 
     public function getCity()
     {
-        return $this->city;
+        return $this->CIDADE;
     }
 
     public function setState($state)
