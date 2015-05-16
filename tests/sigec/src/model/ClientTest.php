@@ -165,7 +165,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     private function setModelAttributes()
     {
         $this->model->setName('name');
-        $this->model->setMothersName('mothersName');
+        $this->model->setMotherName('motherName');
         $this->model->setAddress('address');
         $this->model->setPhone('phone');
         $this->model->setCfpOrCnpj('cpfOrCnpj');

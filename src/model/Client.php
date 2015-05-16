@@ -48,10 +48,10 @@ class Client extends Model
         return $this->NOME;
     }
     
-    public function setMothersName($mothersName)
+    public function setMotherName($motherName)
     {
-        $this->invalidStringArgument($mothersName, "Mother's name");
-        $this->NOME_MAE = $mothersName;
+        $this->invalidStringArgument($motherName, "Mother's name");
+        $this->NOME_MAE = $motherName;
         return $this;
     }
 
