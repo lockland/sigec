@@ -87,48 +87,50 @@
                         </br>
 						</br>
 						<label> 
+                            <span id="mother_name">Nome da Mãe:</span>
+                            <input id='mothername' type='text' value='<?=@$client->motherName?>' name='motherName' required maxlength=40 />
+                        </label>
+						</br>
+						</br>
+						<label> 
                             <span id="cpf_cli">CPF/CNPJ:</span>
-                            <input id='clicpf' type='text' value='<?=@$client->cpf?>' name='cpf' required maxlength=40  />
+                            <input id='clicpf' type='text' value='<?=$client->cpfOrCnpj?>' name='cpfOrCnpj' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="cli_phone">Telefone:</span>
-                            <input id='phoneclient' type='number_format' value='<?=@$client->telefone?>'name='phone' required maxlength=40 />
+                            <input id='phoneclient' type='number_format' value='<?=@$client->phone?> 'name='phone' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="street_cli">Endereço:</span>
-                            <input id='streetclient' type='text' value='<?=@$client->endereco?>' name='street' required maxlength=40 />
+                            <input id='streetclient' type='text' value='<?=@$client->address?>' name='address' required maxlength=40 />
                         </label>
 						</br>
 						</br>
-						<label> 
-                            <span id="mother_name">Nome da Mãe:</span>
-                            <input id='mothername' type='text' value='<?=@$client->nomemae?>' name='mother_name' required maxlength=40 />
+                        <label> 
+                            <span id="street_cli">Bairro:</span>
+                            <input id='streetclient' type='text' value='<?=@$client->district?>' name='district' required maxlength=40 />
                         </label>
 						</br>
 						</br>
                         <label id="state"> 
-                            <span id="state">Estado:</span>
-                            <select id ="state_list" name='state' required>
-                                <option value=""> -- Selecione -- </option>
-                                <option value="administrador" <?php echo (@$user->profile == 'administrador') ? 'selected' : '' ?> >Administrador</option>
-                                <option value="usuario" <?php echo (@$user->profile == 'usuario') ? 'selected' : '' ?> >Usuario</option>
-                            </select> 
+                            <span id="city_client">Estado:</span>
+                            <input id='city' type='text' value='<?=@$client->state?>' name='state' required maxlength=40 />
                         </label>
                         </br>
 						</br>
 						<label> 
                             <span id="city_client">Cidade:</span>
-                            <input id='city' type='text' value='<?=@$client->cidade?>' name='city' required maxlength=40 />
+                            <input id='city' type='text' value='<?=@$client->city?>' name='city' required maxlength=40 />
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="email_client">Email:</span>
-                            <input id='email' type='text' value='<?=@$client->email?>' name='email' required maxlength=40 />
+                            <input id='email' type='email' value='<?=@$client->email?>' name='email' required maxlength=40 />
                         </label>
 						</br>
 						</br>
@@ -170,7 +172,7 @@
                                 <input type="submit" value="Mostrar Todos" id="show_all" onclick="location.href='<?=URL_BASE?>/index.php/User/listAll'">
                             </form>
 					</div>
-					<div id="list-client">
+					<div id="list">
 						<table style="undefined;table-layout: fixed; width: 100%;">
 							<colgroup>
 							<col style="width: 50px">
@@ -189,7 +191,7 @@
                                 <tr>
                                     <td><?=$client->ID?></td>
                                     <td><?=$client->NOME?></td>
-                                    <td><?=$client->TELEFONE?></td>
+                                    <td><?=$client->TEL?></td>
                                 </tr>
                                 <?php endforeach;?>
                             </tbody>
