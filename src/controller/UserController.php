@@ -37,7 +37,6 @@ class UserController extends ControllerBase
 
     public function update($errors = [], $user = null)
     {
-        $errors = [];
         $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
         $user = $user ?: new \StdClass();
 
@@ -59,12 +58,6 @@ class UserController extends ControllerBase
         $this->view->assign('title', 'Editar');
         $this->view->generateHTML();
 
-    }
-
-    public function delete()
-    {
-        $redirector = new Redirector('User', 'listAll');
-        $redirector->redirect();
     }
 
     public function save()
