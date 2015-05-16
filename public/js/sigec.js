@@ -8,14 +8,14 @@ function setRowClick(){
     });
 }
 
-function userUpdate(){
+function update(){
     var id = $('input[name=id]').val();
     if (id == 0) {
         alert("Clique em um dos itens da lista");
         return false;
     }
 
-    window.location = $('#url-base').val() + "/index.php/User/update/id/" + id;
+    window.location = $('#url-base').val() + "/index.php/" + $('#controller').val() + "/update/id/" + id;
 }
 
 $(document).ready(function() {

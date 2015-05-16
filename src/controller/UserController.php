@@ -14,6 +14,7 @@ class UserController extends ControllerBase
         parent::__construct();
         $this->view = new View();
         $this->view->assign('action', '');
+        $this->view->assign('controller', 'User');
         $this->view->assign('username', $this->user->getName());
         $this->user->setPdo(new \PDO(DB_DSN, DB_USER, DB_PASS));
     }

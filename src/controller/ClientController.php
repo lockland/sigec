@@ -14,6 +14,7 @@ class ClientController extends ControllerBase
         parent::__construct();
         $this->view = new View();
         $this->view->assign('action', '');
+        $this->view->assign('controller', 'Client');
         $this->view->assign('username', $this->user->getName());
     }
 
