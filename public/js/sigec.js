@@ -1,10 +1,18 @@
 function setRowClick(){
     $('#list table tbody tr').click(function(event){
+
         var background = $(this).css('background-color');
-        $(this).parent().children().css('background-color', background);
-        $(this).css('background-color', '#ccc');
-        var tds = $(this).children('td');
-        $('input[name=id]').attr('value',tds[0].innerHTML);
+        var rowSelectedBackground = 'rgb(204, 204, 204)'; //#ccc
+
+        if (background != rowSelectedBackground) {
+            $(this).parent().children().css('background-color', background);
+        }
+
+        $(this).css('background-color', rowSelectedBackground);
+
+        var fields = $(this).children('td');
+        var ID = 0;
+        $('input[name=id]').attr('value', fields[ID].innerHTML);
     });
 }
 

@@ -7,9 +7,9 @@
         <main>
             <?php if($action == 'add'):?>
                 <div id="add">
-				<header id="addusers">
+				
 				    <h1 id='adduser'>Inclusão de Usuário</h1>
-                 </header>   
+                    
                     <form id="add_user"action='<?=URL_BASE?>/index.php/User/save/action/add' method="post">
                         <label> 
                             <span id="name">Nome: </span>
@@ -56,9 +56,9 @@
 
             <?php elseif($action == 'update'):?>
                 <div id="add">
-				<header id="addusers">
+				
                     <h1 id="adduser">Edição de Usuário</h1>
-                </header>    
+                   
                     <form id="add_user" action='<?=URL_BASE?>/index.php/User/save/action/update' method="post">
                         <label> 
                             <span id="name">Nome: </span>
