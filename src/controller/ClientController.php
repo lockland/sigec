@@ -98,7 +98,7 @@ class ClientController extends ControllerBase
 
     public function filter()
     {
-        $this->view->assign('clients', []);
+        $this->view->assign('clients', $this->client->filter($_POST['field']));
         $this->view->generateHTML();
     }
 }
