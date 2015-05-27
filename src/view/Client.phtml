@@ -67,7 +67,7 @@
 						</br>
                         <input type="hidden" name='id' value='0'/>
                         <input type="submit" value="Gravar" id="save">
-                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Client/listAll'">
                     </form>
                     <?php foreach($errors as $erro): ?>
                         <span><?=$erro?></span>
@@ -136,7 +136,7 @@
 						</br>
                         <input type="hidden" name='id' value='<?=@$client->id ? $client->id : 0 ?>'/>
                         <input type="submit" value="Gravar" id="save">
-                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Client/listAll'">
                     </form>
                     <?php foreach($errors as $erro): ?>
                         <span><?=$erro?></span>
