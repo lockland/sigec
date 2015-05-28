@@ -128,7 +128,8 @@ CREATE TABLE IF NOT EXISTS `sigec`.`USUARIO` (
   `SENHA` VARCHAR(45) NOT NULL,
   `PERFIL_USUARIO` VARCHAR(45) NOT NULL,
   `ATIVO` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`ID`))
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `LOGIN` (`LOGIN`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
