@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        $this->isLogged();
+        $this->ifIsLoggedRedirectToMain();
 
         $user = new User($this->pdo);
 
@@ -45,8 +45,7 @@ class AuthController extends Controller
             $user->setPassword($_POST['password']);
             $user->retrieveByCredential();
             $user->closePdo();
-
-            $this->session->createSession('user', serialize($user));
+            $this->authenticate($user);
             $this->redirector->redirect();
         } catch (\Exception $e) {
             error_log($e->getMessage());
@@ -58,13 +57,22 @@ class AuthController extends Controller
         }
     }
 
-    public function logout($message = null)
+    private function authenticate($user)
+    {
+        if (!$user->isEnable()) {
+            throw new \RuntimeException('User [' . $user->getLogin() . '] is disabled');
+        }
+
+        $this->session->createSession('user', serialize($user));
+    }
+
+    public function logout()
     {
         $this->session->destroy();
         $this->redirector->redirect();
     }
 
-    public function isLogged()
+    private function ifIsLoggedRedirectToMain()
     {
         if ($this->session->checkSession('user')) {
             $this->redirector->redirect();
