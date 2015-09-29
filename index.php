@@ -10,3 +10,4 @@ if (!preg_match('/index\.php/', $_SERVER['REQUEST_URI'])) {
 
 $system = new Core\core\System();
 $system->run();
+
