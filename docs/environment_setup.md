@@ -1,9 +1,8 @@
-# Debian dev
-==============
+Alt-H2 Debian dev
 
 ### SO
 ----------------------------------------------------------------------------------------------------
-*Debian minimal 64bits*
+**Debian minimal 64bits**
 
 ### Packages
 ----------------------------------------------------------------------------------------------------
@@ -21,10 +20,9 @@
 ----------------------------------------------------------------------------------------------------
 * Added to sources.list file the follow lines
 
-##### Mariadb
-Add the follow line to sources.list
-*deb http://mirror.jmu.edu/pub/mariadb/repo/5.5/debian wheezy main*
+**deb http://mirror.jmu.edu/pub/mariadb/repo/5.5/debian wheezy main**
 
+* Run commands below
 ```bash
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
 aptitude update
@@ -48,7 +46,8 @@ git config core.editor "vim"
 git config --global color.ui true
 ```
 
-* Clone diretory
+* Clone directory
+
 `git clone https://github.com/lockland/sigec.git /var/www/sigec`
 
 ### Install php-pear
