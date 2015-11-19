@@ -1,15 +1,20 @@
         <nav>
-            <a href='<?=URL_BASE?>/index.php/Auth/logout' id='logout'>LOGOUT</a>
-            <ul>
-                <li><a href='#'>ESTOQUE</a>
-					<!--<ul id=submenu>
-						<li class=listmenu><a href='#'>Cadastro de Produtos</a></li>
-						<li class=listmenu><a href='#'>Cadastro de Grupos</a></li>
-						<li class=listmenu><a href='#'>Cadastro de Família</a></li>
-						<li class=listmenu><a href='#'>Cadastro de Local</a></li>
-					</ul> -->	
+		    <a href='<?=URL_BASE?>/index.php/Auth/logout' id='logout'>LOGOUT</a>
+            <ul id="menu-nav">
+				<li id="opc"><a href='#'>ESTOQUE</a>
+					<ul id='sub'>
+						<li><a href='*'>Cadastro de Produtos</a></li>
+						<li><a href='#'>Cadastro de Grupos</a></li>
+						<li><a href='#'>Cadastro de Família</a></li>
+						<li><a href='#'>Cadastro de Local</a></li>
+					</ul> 
 				</li>
-                <li><a href='#'>RELATORIOS</a></li>
+                <li id="opc"><a href='#'>RELATORIOS</a>
+					<ul id='sub'>
+						<li><a href='#'>Cadastro de Produtos</a></li>
+						<li><a href='#'>Cadastro de Grupos</a></li>
+					</ul>	
+				</li>	
                 <li><a href='<?=URL_BASE?>/index.php/Client/listall'>CLIENTES</a></li>
                 <li><a href='<?=URL_BASE?>/index.php/User/listall'>USUARIOS</a></li>
             </ul>
