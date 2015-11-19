@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <?php include('templates/head.phtml');?>
+	<body>
+        <?php include('templates/header.phtml');?>
+        <?php include('templates/nav.phtml');?>
+        <main>
+            <?php if($action == 'add'):?>
+                <div id="add">
+				
+				    <h1 id='addproduto'>Inclusão de Produtos</h1>
+                    
+                    <form id="add_prod"action='<?=URL_BASE?>/index.php/User/save/action/add' method="post">
+                        <label> 
+                            <span id="Cod">Código: </span>
+                            <input id='cod' type='text' value='<?=@$user->name?>' name='name' required maxlength='10' />
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="desc_prod">Descrição do Produto:</span>
+                            <input id='desc_prod' type='text' value='<?=@$user->login?>' name='login' required maxlength=40  />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="estoq_min">Estoque Minímo:</span>
+                            <input id='estoq_min' type='number_format' value='<?=@$user->password?>'name='password' required maxlength=10 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="estoq_max">Estoque Máximo :</span>
+                            <input id='estoq_max' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="val_custo">Valor Custo :</span>
+                            <input id='val_custo' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="val_venda">Valor Venda :</span>
+                            <input id='val_venda' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="qtde_prod">Quantidade em Estoque :</span>
+                            <input id='qtde_prod' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_group">Grupo:</span>
+                            <input id='id_group' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_familia">Família:</span>
+                            <input id='id_familia' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_local">Localização:</span>
+                            <input id='id_local' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_fornecedor">Fornecedor:</span>
+                            <input id='id_fornecedor' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<span id="obs">Observações:</span>
+						<textarea name='observ' id='textarea' cols=30 rows=5> 
+                       
+                        </textarea>
+						</br>
+						</br>
+                        <input type="hidden" name='id' value='0'/>
+                        <input type="submit" value="Gravar" id="record">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/User/listall'">
+                    </form>
+                    <?php foreach($errors as $erro): ?>
+                        <span><?=$erro?></span>
+                    <?php endforeach;?>
+                </div> 
+
+            <?php elseif($action == 'update'):?>
+                <div id="add">
+				
+                    <h1 id='produto'>Edição de Produtos</h1>
+                    
+                    <form id="add_prod"action='<?=URL_BASE?>/index.php/User/save/action/add' method="post">
+                        <label> 
+                            <span id="Cod">Código: </span>
+                            <input id='cod' type='text' value='<?=@$user->name?>' name='name' required maxlength='10' />
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="desc_prod">Descrição do Produto:</span>
+                            <input id='desc_prod' type='text' value='<?=@$user->login?>' name='login' required maxlength=40  />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="estoq_min">Estoque Minímo:</span>
+                            <input id='estoq_min' type='number_format' value='<?=@$user->password?>'name='password' required maxlength=10 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="estoq_max">Estoque Máximo :</span>
+                            <input id='estoq_max' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 />
+                        </label>
+						</br>
+						</br>
+                        <label> 
+                            <span id="val_custo">Valor Custo :</span>
+                            <input id='val_custo' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+                        </br>
+						</br>
+						<label> 
+                            <span id="val_venda">Valor Venda :</span>
+                            <input id='val_venda' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="qtde_prod">Quantidade em Estoque :</span>
+                            <input id='qtde_prod' type='number_format'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_group">Grupo:</span>
+                            <input id='id_group' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_familia">Família:</span>
+                            <input id='id_familia' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_local">Localização:</span>
+                            <input id='id_local' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<label> 
+                            <span id="id_fornecedor">Fornecedor:</span>
+                            <input id='id_fornecedor' type='text'value='<?=@$user->password?>' name='rpassword' required maxlength=10 /> 
+                        </label>
+						</br>
+						</br>
+						<span id="obs">Observações:</span>
+						<textarea name='observ' id='textarea' cols=30 rows=5> 
+                       
+                        </textarea>
+						</br>
+						</br>
+                        <input type="hidden" name='id' value='<?=@$user->id ? $user->id : 0 ?>'/>
+                        <input type="submit" value="Atualizar" id="record">
+                        <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/User/listAll'">
+                    </form></div> 
+                    <?php foreach($errors as $erro): ?>
+                        <span><?=$erro?></span>
+                    <?php endforeach;?>
+
+            <?php else: ?>
+            			
+                <div id='users-list'>
+					<div id="filter-left">
+						<div id=search_left>
+							<header id=left>
+								<h1 id="filter_per">Filtrar Por: </h1>
+							</header>
+						</div>
+						<form>	
+						<input type="radio" name="filter" value="cod" checked id="rdio">Código
+						</br>
+						</br>
+						<input type="radio" name="filter" value="name" id="rdio">Descrição
+						</br>
+						</br>
+						<input type="radio" name="filter" value="login" id="rdio">Fornecedor
+						</br>
+						</br>
+						</form>
+
+					</div>
+					<div id="search">
+							<div id=search_name>
+								<header id=search>
+									<h1 id="filter">Filtro</h1>
+								</header>
+							</div>
+                            <form id='name' action='<?=URL_BASE?>/index.php/User/filter' method='post'>
+                                Descrição: <input id="camp" type="text" name="field" required maxlength='40'>
+                                <input type="submit" value="Filtrar" id="filter_bottom"> 
+                                <input type="submit" value="Mostrar Todos" id="show_all" onclick="location.href='<?=URL_BASE?>/index.php/User/listAll'">
+                            </form>
+					</div>
+					<div id="list">
+						<table style="undefined;table-layout: fixed; width: 100%;">
+							<colgroup>
+							<col style="width: 50px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+							<col style="width: 100px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Descrição</th>
+                                    <th>Quantidade em Estoque</th>
+                                    <th>Família</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($users as $user): ?>
+                                <tr>
+                                    <td><?=$user->ID?></td>
+                                    <td><?=$user->NOME?></td>
+                                    <td><?=$user->LOGIN?></td>
+                                    <td><?=$user->ATIVO?></td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
+						</table>
+							
+                    </div>
+                    <input type="hidden" name='id' value='0'/>
+                    <input type="button" value="Novo" id="new" onclick="location.href='<?=URL_BASE?>/index.php/User/add'" />
+                    <input type="button" value="Alterar" id="update" onclick="update();" />
+                    <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Main'" />
+                </div>
+            <?php endif;?>
+            <input type="hidden" id='url-base' value='<?=URL_BASE?>'/>
+            <input type="hidden" id='controller' value='<?=$controller?>'/>
+		</main>
+        <?php include('templates/aside.phtml');?>
+		<div id='clear'></div>
+        <?php include('templates/footer.phtml');?>
+        <script src='<?=PUBLIC_URL?>/js/jquery-1.11.2.min.js'></script>
+        <script src='<?=PUBLIC_URL?>/js/sigec.js'></script>
+	</body>
+</html>
+
