@@ -7,7 +7,7 @@ body {
     min-width: 750px;
     max-width: 1000px;
     margin: 0px auto;
-    font-family: 'sans-serif';
+    font-family: 'Indie Flower', cursive;
     border: 2px solid #02735f;
     font-size: 12px;
 }
@@ -66,6 +66,64 @@ header #user-icon {
     margin-right: 5px;
 }
 
+/* MENU*/
+
+#sub
+{
+    margin-right: 20px; /*anterior: 20*/
+    display: none;
+	
+}
+
+#sub a
+{
+    height: 100px;
+	color: azure;
+	width:100%;/*10%*/
+}
+
+#menu-nav li:hover > #sub
+{
+    display: block;
+	height: 100%;	
+	width: 100%;/*20%*/
+	   
+}
+
+#sub a:hover
+{
+    /*border-bottom: 100px solid black;*/
+	width: 160%;
+	text-align: center;
+
+}
+
+#opc a:hover
+{    width: 55%; /* antes: 10*/
+     /*border-bottom: 3px solid rgba(0, 0, 0, .9);*/
+	 	 
+}
+
+#opc ul li {
+    display: inline;
+    float: left;
+    border: 2px solid #fff;
+	 width: 160%;/*20%*/
+	 height: 40px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #358F7F;
+    margin-top: auto; /*20px*/
+    margin-left: auto;/*15px*/
+}
+
+#opc ul li a {
+    display: block;
+    padding: 7px;/*25px*/
+    text-decoration: none;
+	text-align: center;
+    color: #f0f0f0;
+}
+
 nav {
     text-align: center;
     background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
@@ -88,6 +146,7 @@ nav ul li {
     display: inline;
     float: left;
     border: 2px solid #fff;
+	 width: 20%;
     border-radius: 5px 5px 0px 0px;
     background-color: #358F7F;
     margin-top: 20px;
@@ -95,9 +154,10 @@ nav ul li {
 }
 
 nav ul li a {
-    display: inline-block;
-    padding: 7px 25px;
+    display: block;
+    padding: 7px 25px;/*25px*/
     text-decoration: none;
+	text-align: center;
     color: #f0f0f0;
 }
 
@@ -117,7 +177,7 @@ aside {
 
 aside ul {
     list-style: none;
-	margin-top:100px;
+	margin-top:190px;
 }
 
 aside ul li {
@@ -200,6 +260,7 @@ div#users-list input#new{
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 290px;
+	font-family: 'Indie Flower', cursive;
 }
 div#users-list input#update{
     border: 1px solid #02735f;
@@ -216,6 +277,7 @@ div#users-list input#update{
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 20px;
+	font-family: 'Indie Flower', cursive;
 }
 div#users-list input#close{
     border: 1px solid #02735f;
@@ -232,6 +294,7 @@ div#users-list input#close{
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 20px;
+	font-family: 'Indie Flower', cursive;
 }
 
 div#filter-left{
@@ -246,7 +309,7 @@ div#filter-left{
 div#filter-left form{
  margin-top:10px;
  font-size:14px;
- font-family: 'sans-serif';
+ font-family: 'Indie Flower', cursive;
  font-weight: bold;
  }
  div#filter-left label{
@@ -380,6 +443,7 @@ div#search input#filter_bottom{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
     margin-left: 10px;
 	font-weight: bold;
+	font-family: 'Indie Flower', cursive;
 }
 div#search input#show_all{
     border: 1px solid #02735f;
@@ -396,6 +460,7 @@ div#search input#show_all{
     background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );	
 	font-weight: bold;
+	font-family: 'Indie Flower', cursive;
 }
 
 h1#adduser{
@@ -405,7 +470,6 @@ h1#adduser{
     top: 16%;
     position: relative;
 	color:black;
-	/*color: #f0f0f0;*/
     height: 25px;
     background: rgba(99,169,156,1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
@@ -542,6 +606,24 @@ h1#addclient{
  
  }
  
+ h1#client{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+ 
+ }
 div#add form#add_client{
 
 margin-top:45px;
@@ -647,6 +729,199 @@ div#add input#save{
 }
 
 div#list-client{
+
+    min-height: 300px;
+    margin-left: 20px;
+	margin-top:8%;
+	margin-bottom:20px;
+    padding: 0px;
+    float: center;
+    border: 2px solid #02735f;
+    border-radius: 5px;
+    width: 95%;
+}
+
+/*======= List Product Window ===================*/ 
+
+
+h1#addproduto{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+ 
+ }
+ 
+ h1#produto{
+ 
+    font-size: 18px;
+    text-align: center;
+    top: 16%;
+    position: relative;
+	color:black;
+    height: 25px;
+    background: rgba(99,169,156,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(99,169,156,1)), color-stop(100%, rgba(36,133,115,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(99,169,156,1) 0%, rgba(36,133,115,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63a99c', endColorstr='#248573', GradientType=1 );
+ 
+ }
+div#add form#add_prod{
+
+margin-top:45px;
+}
+
+div#add  span#cod {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#cod {
+border: 1px solid #02735f;
+}
+
+div#add  span#desc_prod {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#desc_prod  {
+border: 1px solid #02735f;
+}
+
+div#add  span#estoq_min{
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#estoq_min{
+border: 1px solid #02735f;
+}
+
+div#add  span#estoq_max {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#estoq_max{
+border: 1px solid #02735f;
+}
+
+div#add  span#val_custo {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#val_custo{
+border: 1px solid #02735f;
+}
+
+div#add  span#val_venda{
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#val_venda{
+border: 1px solid #02735f;
+}
+div#add  span#qtde_prod{
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#qtde_prod{
+border: 1px solid #02735f;
+}
+
+div#add  span#id_group {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#id_group{
+border: 1px solid #02735f;
+}
+
+div#add  span#id_familia {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#id_familia{
+border: 1px solid #02735f;
+}
+
+div#add  span#id_local {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+
+div#add input#id_local{
+border: 1px solid #02735f;
+}
+
+div#add  span#id_fornecedor {
+margin-left:5%;
+border-radius: 5px;
+font-weight: bold;
+font-size:18px;
+}
+div#add input#id_fornecedor{
+border: 1px solid #02735f;
+}
+
+div#add textarea#textarea{
+
+border: 1px solid #02735f;
+}
+
+
+div#add input#save{
+    border: 1px solid #02735f;
+    border-radius: 5px;
+    background: rgba(237,245,243,1);
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-size: 14px;
+    background: -moz-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(237,245,243,1)), color-stop(100%, rgba(129,185,175,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(237,245,243,1) 0%, rgba(129,185,175,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf5f3', endColorstr='#81b9af', GradientType=1 );
+    margin-top:80px;
+	margin-left:320px;
+	font-weight: bold;
+}
+
+div#product-list{
 
     min-height: 300px;
     margin-left: 20px;
