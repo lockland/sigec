@@ -51,8 +51,11 @@ header h1 {
 }
 
 header img {
-    float: left;
-    margin: 5px;
+    /*float: left;
+    margin: 5px;*/
+	position: absolute; 
+	left: 0px; /* posiciona a 90px para a esquerda */ 
+	top: 10px; /* posiciona a 70px para baixo */
 }
 
 main {
@@ -71,6 +74,7 @@ div#content-login {
     border-radius: 7px;
     text-align: center;
     padding: 10px;
+	font-family: 'Indie Flower', cursive;
 }
 
 div#content-login #title {
@@ -91,16 +95,36 @@ div#content-login label span {
 }
 
 div#content-login input#login{
-    border: 1px solid #555;
+    /*border: 1px solid #555;
     padding:2px 2px;
-    width: 204px;
+    width: 204px;*/
+	
+	/*definimos a largura do box*/
+    width:180px;
+    /* definimos a altura do box */
+    height:20px;
+    /* definimos a cor de fundo do box */
+    background-color:#D1EEEE; /*antes E0FFFF */
+    /* definimos o quão arredondado irá ficar nosso box */
+    border-radius: 10px 10px 10px 10px;
+    }
+
+	
+div#content-login input#password{
+    /*border: 1px solid #555;
+    padding:2px 2px;
+    width: 204px;*/
+	
+	/*definimos a largura do box*/
+    width:180px;
+    /* definimos a altura do box */
+    height:20px;
+    /* definimos a cor de fundo do box */
+    background-color:#D1EEEE; /*antes E0FFFF */
+    /* definimos o quão arredondado irá ficar nosso box */
+    border-radius: 10px 10px 10px 10px;
 }
 
-div#content-login input#password{
-    border: 1px solid #555;
-    padding:2px 2px;
-    width: 204px;
-}
 
 div#content-login input#submit{
     border: 2px solid #02735f;
@@ -115,6 +139,7 @@ div#content-login input#submit{
     background: linear-gradient(to bottom, #02735f 0%,#318271 50%,#02735f 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02735f', endColorstr='#02735f',GradientType=0 ); /* IE6-9 */
 	border-radius:5px;
+	font-family: 'Indie Flower', cursive;
 	
 }
 
