@@ -2,10 +2,10 @@
 
 namespace Sigec\view;
 
-class Produto extends ViewBase
+class Product extends ViewBase
 {
     public function __construct()
     {
-        $this->template = 'Produto.phtml';
+        $this->template = 'Product.phtml';
     }
 }

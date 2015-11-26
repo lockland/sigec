@@ -2,7 +2,7 @@
 	"name": "sigec",
 	"version": "1.0.0",
 	"require": {
-		"php": ">=5.3"
+		"php": ">=5.4"
 	},
 	"authors": [
 		{
