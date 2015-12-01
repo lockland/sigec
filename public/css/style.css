@@ -933,3 +933,9 @@ div#product-list{
     border-radius: 5px;
     width: 95%;
 }
+
+div#list table tbody tr td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
