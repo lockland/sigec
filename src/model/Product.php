@@ -6,22 +6,29 @@ use Core\model\Model;
 
 class Product extends Model
 {
-    private $ID = 0;
-    private $NOME;
-    private $NOME_MAE;
-    private $END;
-    private $TEL;
-    private $CPF_CNPJ;
-    private $EMAIL;
-    private $CIDADE;
-    private $ESTADO;
-    private $BAIRRO;
 
+    private $ID = 0;
+    private $DESC_PROD = "";
+    private $ESTOQ_MIN = 0;
+    private $ESTOQ_MAX = 0;
+    private $VALOR_CUSTO = 0.0;
+    private $VALOR_VENDA = 0.0;
+    private $OBS = "";
+    private $QTDE = 0;
+    private $GRUPO = 1;
+    private $FAMILIA = 1;
+    private $LOCAL = 1;
+    private $FORNECEDOR = 1;
 
     public function __construct(\PDO $pdo)
     {
         $this->setPdo($pdo);
-        $this->table = 'CLIENTE';
+        $this->table = 'PRODUTO';
+    }
+
+    public function getId()
+    {
+        return $this->ID;
     }
 
     public function setId($id)
@@ -31,123 +38,132 @@ class Product extends Model
         return $this;
     }
 
-    public function getId()
+    public function getDescription()
     {
-        return $this->ID;
+        return $this->DESC_PROD;
     }
 
-    public function setName($name)
+    public function setDescription($description)
     {
-        $this->invalidStringArgument($name, 'Name');
-        $this->NOME = $name;
+        $this->DESC_PROD = $description;
         return $this;
     }
 
-    public function getName()
+    public function getMinQuantity()
     {
-        return $this->NOME;
+        return (int) $this->ESTOQ_MIN;
     }
-    
-    public function setMotherName($motherName)
+
+    public function setMinQuantity($minQuantity)
     {
-        $this->invalidStringArgument($motherName, "Mother's name");
-        $this->NOME_MAE = $motherName;
+        $this->ESTOQ_MIN = $minQuantity;
         return $this;
     }
 
-    public function getMotherName()
+    public function getMaxQuantity()
     {
-        return $this->NOME_MAE;
+        return (int) $this->ESTOQ_MAX;
     }
 
-    public function setAddress($address)
+    public function setMaxQuantity($maxQuantity)
     {
-        $this->invalidStringArgument($address, 'Address');
-        $this->END = $address;
+        $this->ESTOQ_MAX = $maxQuantity;
         return $this;
     }
 
-    public function getAddress()
+    public function getValue()
     {
-        return $this->END;
+        return $this->VALOR_CUSTO;
     }
 
-    public function setPhone($phone)
+    public function setValue($value)
     {
-        $this->invalidStringArgument($phone, 'Phone');
-        $this->TEL = $phone;
+        $this->VALOR_CUSTO = $value;
         return $this;
     }
 
-    public function getPhone()
+    public function getSalesValue()
     {
-        return $this->TEL;
+        return $this->VALOR_VENDA;
     }
 
-    public function setCpfOrCnpj($cpfOrCnpj)
+    public function setSalesValue($salesValue)
     {
-        $this->invalidStringArgument($cpfOrCnpj, 'CPF or CNPJ');
-        $this->CPF_CNPJ = $cpfOrCnpj;
+        $this->VALOR_VENDA = $salesValue;
         return $this;
     }
 
-    public function getCpfOrCnpj()
+    public function getOBS()
     {
-        return $this->CPF_CNPJ;
+        return $this->OBS;
     }
 
-    public function setEmail($email)
+    public function setOBS($OBS)
     {
-        $this->invalidStringArgument($email, 'E-mail');
-        $this->EMAIL = $email;
+        $this->OBS = $OBS;
         return $this;
     }
 
-    public function getEmail()
+    public function getQuantity()
     {
-        return $this->EMAIL;
+        return $this->QTDE;
     }
 
-    public function setCity($city)
+    public function setQuantity($quantity)
     {
-        $this->invalidStringArgument($city, 'City');
-        $this->CIDADE = $city;
+        $this->QTDE = $quantity;
         return $this;
     }
 
-    public function getCity()
+    public function getGroup()
     {
-        return $this->CIDADE;
+        return $this->GRUPO;
     }
 
-    public function setState($state)
+    public function setGroup($group)
     {
-        $this->invalidStringArgument($state, 'State');
-        $this->ESTADO = $state;
+        $this->GRUPO = $group;
         return $this;
     }
 
-    public function getState()
+    public function getFamily()
     {
-        return $this->ESTADO;
+        return $this->FAMILIA;
     }
 
-    public function setDistrict($district)
+    public function setFamily($family)
     {
-        $this->invalidStringArgument($district, 'District');
-        $this->BAIRRO = $district;
+        $this->FAMILIA = $family;
         return $this;
     }
 
-    public function getDistrict()
+    public function getLocal()
     {
-        return $this->BAIRRO;
+        return $this->LOCAL;
     }
+
+    public function setLocal($local)
+    {
+        $this->LOCAL = $Local;
+        return $this;
+    }
+
+    public function getSupply()
+    {
+        return $this->FORNECEDOR;
+    }
+
+    public function setSupply($supply)
+    {
+        $this->FORNECEDOR = $supply;
+        return $this;
+    }
+
 
     /**
-     * Insert the user's information in database
+     * Insert the product's information in database
      *
-     * Try insert user in database <br />
+     * Try insert product in database <br />
      * If an error occur a RuntimeException is thrown
      *
      * @return Integer $id Last id inserted
@@ -157,43 +173,59 @@ class Product extends Model
     {
         $stmt = $this->pdo->prepare("
             INSERT INTO {$this->table} (
-                NOME,
-                NOME_MAE,
-                END,
-                TEL,
-                CPF_CNPJ,
-                EMAIL,
-                CIDADE,
-                ESTADO,
-                BAIRRO
+                DESC_PROD,
+                ESTOQ_MIN,
+                ESTOQ_MAX,
+                VALOR_CUSTO,
+                VALOR_VENDA,
+                OBS,
+                QTDE,
+                GRUPO_ID,
+                FAMILIA_ID,
+                LOCAL_ID,
+                FORNECEDOR_ID
             ) VALUES (
-                :NOME,
-                :NOME_MAE,
-                :END,
-                :TEL,
-                :CPF_CNPJ,
-                :EMAIL,
-                :CIDADE,
-                :ESTADO,
-                :BAIRRO
+                :DESC_PROD,
+                :ESTOQ_MIN,
+                :ESTOQ_MAX,
+                :VALOR_CUSTO,
+                :VALOR_VENDA,
+                :OBS,
+                :QTDE,
+                :GRUPO_ID,
+                :FAMILIA_ID,
+                :LOCAL_ID,
+                :FORNECEDOR_ID
             );
         ");
 
-        $stmt->bindParam(':NOME', $this->NOME, \PDO::PARAM_STR);
-        $stmt->bindParam(':NOME_MAE', $this->NOME_MAE, \PDO::PARAM_STR);
-        $stmt->bindParam(':END', $this->END, \PDO::PARAM_STR);
-        $stmt->bindParam(':TEL', $this->TEL, \PDO::PARAM_STR);
-        $stmt->bindParam(':CPF_CNPJ', $this->CPF_CNPJ, \PDO::PARAM_STR);
-        $stmt->bindParam(':EMAIL', $this->EMAIL, \PDO::PARAM_STR);
-        $stmt->bindParam(':CIDADE', $this->CIDADE, \PDO::PARAM_STR);
-        $stmt->bindParam(':ESTADO', $this->ESTADO, \PDO::PARAM_STR);
-        $stmt->bindParam(':BAIRRO', $this->BAIRRO, \PDO::PARAM_STR);
+        $this->validateQuantities('Fail to insert product');
 
-        if (!$stmt->execute()) {
-            throw new \RuntimeException('Fail to insert client');
+        @$stmt->bindParam(':DESC_PROD', $this->getDescription(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':ESTOQ_MIN', $this->getMinQuantity(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':ESTOQ_MAX', $this->getMaxQuantity(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':VALOR_CUSTO', $this->getValue(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':VALOR_VENDA', $this->getSalesValue(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':OBS', $this->getOBS(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':QTDE', $this->getQuantity(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':GRUPO_ID', $this->getGroup(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':FAMILIA_ID', $this->getFamily(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':LOCAL_ID', $this->getLocal(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':FORNECEDOR_ID', $this->getSupply(), \PDO::PARAM_INT);
+
+        $stmt->execute();
+        return (int) $this->pdo->lastInsertId();
+    }
+
+    public function validateQuantities($exceptionMsg)
+    {
+        if ($this->getMinQuantity() > $this->getMaxQuantity()) {
+            throw new \RuntimeException($exceptionMsg);
         }
 
-        return (int) $this->pdo->lastInsertId();
+        if ($this->getMaxQuantity() < $this->getQuantity()) {
+            throw new \RuntimeException($exceptionMsg);
+        }
     }
 
     /**
@@ -208,7 +240,7 @@ class Product extends Model
         $stmt->bindParam(':ID', $id, \PDO::PARAM_INT);
 
         if (!$stmt->execute()) {
-            throw new \RuntimeException('Fail to delete client');
+            throw new \RuntimeException('Fail to delete product');
         }
 
         return  (int) $stmt->rowCount();
@@ -250,21 +282,21 @@ class Product extends Model
 
     private function mapper($resultset)
     {
-        $this->ID = $resultset->ID;
-        $this->NOME = $resultset->NOME;
-        $this->NOME_MAE = $resultset->NOME_MAE;
-        $this->END = $resultset->END;
-        $this->TEL = $resultset->TEL;
-        $this->CPF_CNPJ = $resultset->CPF_CNPJ;
-        $this->EMAIL = $resultset->EMAIL;
-        $this->CIDADE = $resultset->CIDADE;
-        $this->ESTADO = $resultset->ESTADO;
-        $this->BAIRRO = $resultset->BAIRRO;
+        $this->DESC_PROD = $resultset->DESC_PROD;
+        $this->ESTOQ_MIN = $resultset->ESTOQ_MIN;
+        $this->ESTOQ_MAX = $resultset->ESTOQ_MAX;
+        $this->VALOR_CUSTO = $resultset->VALOR_CUSTO;
+        $this->VALOR_VENDA = $resultset->VALOR_VENDA;
+        $this->OBS = $resultset->OBS;
+        $this->QTDE = $resultset->QTDE;
+        $this->GRUPO_ID = $resultset->GRUPO_ID;
+        $this->FAMILIA_ID = $resultset->FAMILIA_ID;
+        $this->LOCAL_ID = $resultset->LOCAL_ID;
+        $this->FORNECEDOR_ID = $resultset->FORNECEDOR_ID;
     }
 
     public function fetchAll()
     {
-        return [];
         $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
         $stmt->execute();
         $resultset = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -333,4 +365,5 @@ class Product extends Model
         $stmt->closeCursor();
         return $resultset;
     }
+ 
 }
