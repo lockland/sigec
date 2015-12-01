@@ -282,6 +282,7 @@ class Product extends Model
 
     private function mapper($resultset)
     {
+        $this->ID = $resultset->ID;
         $this->DESC_PROD = $resultset->DESC_PROD;
         $this->ESTOQ_MIN = $resultset->ESTOQ_MIN;
         $this->ESTOQ_MAX = $resultset->ESTOQ_MAX;
@@ -309,28 +310,34 @@ class Product extends Model
         $stmt = $this->pdo->prepare("
             UPDATE {$this->table}
             SET 
-                NOME = :NOME,
-                NOME_MAE = :NOME_MAE,
-                END = :END,
-                TEL = :TEL,
-                CPF_CNPJ = :CPF_CNPJ,
-                EMAIL = :EMAIL,
-                CIDADE = :CIDADE,
-                ESTADO = :ESTADO,
-                BAIRRO = :BAIRRO
+                DESC_PROD = :DESC_PROD,
+                ESTOQ_MIN = :ESTOQ_MIN,
+                ESTOQ_MAX = :ESTOQ_MAX,
+                VALOR_CUSTO = :VALOR_CUSTO,
+                VALOR_VENDA = :VALOR_VENDA,
+                OBS = :OBS,
+                QTDE = :QTDE,
+                GRUPO_ID = :GRUPO_ID,
+                FAMILIA_ID = :FAMILIA_ID,
+                LOCAL_ID = :LOCAL_ID,
+                FORNECEDOR_ID = :FORNECEDOR_ID
             WHERE ID = :ID
         ");
 
-        $stmt->bindParam(':ID', $this->ID, \PDO::PARAM_INT);
-        $stmt->bindParam(':NOME', $this->NOME, \PDO::PARAM_STR);
-        $stmt->bindParam(':NOME_MAE', $this->NOME_MAE, \PDO::PARAM_STR);
-        $stmt->bindParam(':END', $this->END, \PDO::PARAM_STR);
-        $stmt->bindParam(':TEL', $this->TEL, \PDO::PARAM_STR);
-        $stmt->bindParam(':CPF_CNPJ', $this->CPF_CNPJ, \PDO::PARAM_STR);
-        $stmt->bindParam(':EMAIL', $this->EMAIL, \PDO::PARAM_STR);
-        $stmt->bindParam(':CIDADE', $this->CIDADE, \PDO::PARAM_STR);
-        $stmt->bindParam(':ESTADO', $this->ESTADO, \PDO::PARAM_STR);
-        $stmt->bindParam(':BAIRRO', $this->BAIRRO, \PDO::PARAM_STR);
+        $this->validateQuantities('Fail to insert product');
+
+        @$stmt->bindParam(':ID', $this->getId(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':DESC_PROD', $this->getDescription(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':ESTOQ_MIN', $this->getMinQuantity(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':ESTOQ_MAX', $this->getMaxQuantity(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':VALOR_CUSTO', $this->getValue(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':VALOR_VENDA', $this->getSalesValue(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':OBS', $this->getOBS(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':QTDE', $this->getQuantity(), \PDO::PARAM_STR);
+        @$stmt->bindParam(':GRUPO_ID', $this->getGroup(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':FAMILIA_ID', $this->getFamily(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':LOCAL_ID', $this->getLocal(), \PDO::PARAM_INT);
+        @$stmt->bindParam(':FORNECEDOR_ID', $this->getSupply(), \PDO::PARAM_INT);
 
         if (!$stmt->execute()) {
             throw new \RuntimeException('Fail to update client');
@@ -352,7 +359,8 @@ class Product extends Model
             WHERE 
                 1=1 
                 AND ID LIKE :FIELD 
-                OR NOME LIKE :FIELD 
+                OR DESC_PROD LIKE :FIELD 
+                OR QTDE LIKE :FIELD 
         ");
 
         $stmt->bindParam(':FIELD', $field, \PDO::PARAM_STR);

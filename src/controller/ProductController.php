@@ -42,6 +42,7 @@ class ProductController extends ControllerBase
 
         try {
             $this->model->retrieve($id);
+            $product->ID = $this->model->getId();
             $product->DESC_PROD = $this->model->getDescription();
             $product->ESTOQ_MIN = $this->model->getMinQuantity();
             $product->ESTOQ_MAX = $this->model->getMaxQuantity();
@@ -84,8 +85,6 @@ class ProductController extends ControllerBase
             $errors[] = 'Could not store the product in database';
         }
 
-        var_dump($errors);
-        return;
         $action = $_GET['action'];
         
         if (count($errors) <= 0) {

@@ -10,7 +10,7 @@
 				
 				    <h1 id='addproduto'>Inclusão de Produtos</h1>
                     
-                    <form id="add_prod" action='<?=URL_BASE?>/index.php/Product/save' method="post">
+                    <form id="add_prod" action='<?=URL_BASE?>/index.php/Product/save/action/add' method="post">
 						</br>
 						<label> 
                             <span id="desc_prod">Descrição do Produto:</span>
@@ -90,7 +90,7 @@
 				
                     <h1 id='produto'>Edição de Produtos</h1>
                     
-                    <form id="add_prod"action='<?=URL_BASE?>/index.php/Product/save' method="post">
+                    <form id="add_prod"action='<?=URL_BASE?>/index.php/Product/save/action/update' method="post">
 						<label> 
                             <span id="desc_prod">Descrição do Produto:</span>
                             <input id='desc_prod' type='text' value='<?=@$product->DESC_PROD?>' name='desc_prod' required maxlength=40  />
@@ -155,7 +155,7 @@
                         <textarea name='observ' id='textarea' cols=30 rows=5><?=@$product->OBS?></textarea>
                         </br>
 						</br>
-                        <input type="hidden" name='id' value='<?=@$product->id ? $product->id : 0 ?>'/>
+                        <input type="hidden" name='id' value='<?=@$product->ID ? $product->ID : 0 ?>'/>
                         <input type="submit" value="Atualizar" id="record">
                         <input type="button" value="Fechar" id="close" onclick="location.href='<?=URL_BASE?>/index.php/Product/listAll'">
                     </form></div> 
