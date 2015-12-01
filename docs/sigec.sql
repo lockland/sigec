@@ -165,6 +165,11 @@ CREATE TABLE IF NOT EXISTS `sigec`.`VENDA` (
 ENGINE = InnoDB;
 
 INSERT INTO USUARIO VALUES (1, 'Administrador', 'admin', md5('admin'), 'administrador', 1);
+INSERT INTO FORNECEDOR VALUES(1, 'temp', 'temp', 'temp','temp','temp','temp','temp','temp','temp','temp','temp');
+INSERT INTO GRUPO VALUES(1, 'temp');                                                                                                                                                                                          
+INSERT INTO FAMILIA VALUES(1, 'temp');                                                                                                                                                                                        
+INSERT INTO LOCAL VALUES(1, 'temp');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
