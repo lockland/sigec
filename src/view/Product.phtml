@@ -14,68 +14,66 @@
 						</br>
 						<label> 
                             <span id="desc_prod">Descrição do Produto:</span>
-                            <input id='desc_prod' type='text' value='<?=@$product->desc_prod?>' name='desc_prod' required maxlength=40  />
+                            <input id='desc_prod' type='text' value='<?=@$product->DESC_PROD?>' name='desc_prod' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="estoq_min">Estoque Minímo:</span>
-                            <input id='estoq_min' type='number' value='<?=@$product->estoq_min?>' name='estoq_min' required maxlength=10 />
+                            <input id='estoq_min' type='number' value='<?=@$product->ESTOQ_MIN?>' name='estoq_min' required maxlength=10 />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="estoq_max">Estoque Máximo :</span>
-                            <input id='estoq_max' type='number' value='<?=@$product->estoq_max?>' name='estoq_max' required maxlength=10 />
+                            <input id='estoq_max' type='number' value='<?=@$product->ESTOQ_MAX?>' name='estoq_max' required maxlength=10 />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="val_custo">Valor Custo :</span>
-                            <input id='val_custo' type='number' step="0.1" value='<?=@$product->val_custo?>' name='val_custo' required maxlength=10 /> 
+                            <input id='val_custo' type='number' step="0.1" value='<?=@$product->VALOR_CUSTO?>' name='val_custo' required maxlength=10 /> 
                         </label>
                         </br>
 						</br>
 						<label> 
                             <span id="val_venda">Valor Venda :</span>
-                            <input id='val_venda' type='number' step="0.1" value='<?=@$product->val_venda?>' name='val_venda' required maxlength=10 /> 
+                            <input id='val_venda' type='number' step="0.1" value='<?=@$product->VALOR_VENDA?>' name='val_venda' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="qtde_prod">Quantidade em Estoque :</span>
-                            <input id='qtde_prod' type='number'value='<?=@$product->qtde_prod?>' name='qtde_prod' required maxlength=10 /> 
+                            <input id='qtde_prod' type='number'value='<?=@$product->QTDE?>' name='qtde_prod' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<!--label> 
                             <span id="id_group">Grupo:</span>
-                            <input id='id_group' type='text'value='<?=@$product->id_group?>' name='id_group' required maxlength=10 /> 
+                            <input id='id_group' type='text'value='<?=@$product->GRUPO_ID?>' name='id_group' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_familia">Família:</span>
-                            <input id='id_familia' type='text'value='<?=@$product->id_familia?>' name='id_familia' required maxlength=10 /> 
+                            <input id='id_familia' type='text'value='<?=@$product->FAMILIA_ID?>' name='id_familia' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_local">Localização:</span>
-                            <input id='id_local' type='text'value='<?=@$product->id_local?>' name='id_local' required maxlength=10 /> 
+                            <input id='id_local' type='text'value='<?=@$product->LOCAL_ID?>' name='id_local' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_fornecedor">Fornecedor:</span>
-                            <input id='id_fornecedor' type='text'value='<?=@$product->id_fornecedor?>' name='id_fornecedor' required maxlength=10 /> 
+                            <input id='id_fornecedor' type='text'value='<?=@$product->FORNECEDOR_ID?>' name='id_fornecedor' required maxlength=10 /> 
                         </label>
 						</br>
 						</br-->
 						<span id="obs">Observações:</span>
-						<textarea name='observ' id='textarea' cols=30 rows=5> 
-                       
-                        </textarea>
+                        <textarea name='observ' id='textarea' cols=30 rows=5><?=@$product->OBS?></textarea>
 						</br>
 						</br>
                         <input type="hidden" name='id' value='0'/>
@@ -95,67 +93,67 @@
                     <form id="add_prod"action='<?=URL_BASE?>/index.php/Product/save' method="post">
 						<label> 
                             <span id="desc_prod">Descrição do Produto:</span>
-                            <input id='desc_prod' type='text' value='<?=@$product->desc_prod?>' name='desc_prod' required maxlength=40  />
+                            <input id='desc_prod' type='text' value='<?=@$product->DESC_PROD?>' name='desc_prod' required maxlength=40  />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="estoq_min">Estoque Minímo:</span>
-                            <input id='estoq_min' type='number' value='<?=@$product->estoq_min?>' name='estoq_min' required maxlength=10 />
+                            <input id='estoq_min' type='number' value='<?=@$product->ESTOQ_MIN?>' name='estoq_min' required maxlength=10 />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="estoq_max">Estoque Máximo :</span>
-                            <input id='estoq_max' type='number' value='<?=@$product->estoq_max?>' name='estoq_max' required maxlength=10 />
+                            <input id='estoq_max' type='number' value='<?=@$product->ESTOQ_MAX?>' name='estoq_max' required maxlength=10 />
                         </label>
 						</br>
 						</br>
                         <label> 
                             <span id="val_custo">Valor Custo :</span>
-                            <input id='val_custo' type='number' step="0.1" value='<?=@$product->val_custo?>' name='val_custo' required maxlength=10 /> 
+                            <input id='val_custo' type='number' step="0.1" value='<?=@$product->VALOR_CUSTO?>' name='val_custo' required maxlength=10 /> 
                         </label>
                         </br>
 						</br>
 						<label> 
                             <span id="val_venda">Valor Venda :</span>
-                            <input id='val_venda' type='number' step="0.1" value='<?=@$product->val_venda?>' name='val_venda' required maxlength=10 /> 
+                            <input id='val_venda' type='number' step="0.1" value='<?=@$product->VALOR_VENDA?>' name='val_venda' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="qtde_prod">Quantidade em Estoque :</span>
-                            <input id='qtde_prod' type='number'value='<?=@$product->qtde_prod?>' name='qtde_prod' required maxlength=10 /> 
+                            <input id='qtde_prod' type='number'value='<?=@$product->QTDE?>' name='qtde_prod' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<!--label> 
                             <span id="id_group">Grupo:</span>
-                            <input id='id_group' type='text'value='<?=@$product->id_group?>' name='id_group' required maxlength=10 /> 
+                            <input id='id_group' type='text'value='<?=@$product->GRUPO_ID?>' name='id_group' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_familia">Família:</span>
-                            <input id='id_familia' type='text'value='<?=@$product->id_familia?>' name='id_familia' required maxlength=10 /> 
+                            <input id='id_familia' type='text'value='<?=@$product->FAMILIA_ID?>' name='id_familia' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_local">Localização:</span>
-                            <input id='id_local' type='text'value='<?=@$product->id_local?>' name='id_local' required maxlength=10 /> 
+                            <input id='id_local' type='text'value='<?=@$product->LOCAL_ID?>' name='id_local' required maxlength=10 /> 
                         </label>
 						</br>
 						</br>
 						<label> 
                             <span id="id_fornecedor">Fornecedor:</span>
-                            <input id='id_fornecedor' type='text'value='<?=@$product->id_fornecedor?>' name='id_fornecedor' required maxlength=10 /> 
+                            <input id='id_fornecedor' type='text'value='<?=@$product->FORNECEDOR_ID?>' name='id_fornecedor' required maxlength=10 /> 
                         </label>
 						</br>
 						</br-->
 						<span id="obs">Observações:</span>
-						<textarea name='observ' id='textarea' cols=30 rows=5> 
-						</br>
+                        <textarea name='observ' id='textarea' cols=30 rows=5><?=@$product->OBS?></textarea>
+                        </br>
 						</br>
                         <input type="hidden" name='id' value='<?=@$product->id ? $product->id : 0 ?>'/>
                         <input type="submit" value="Atualizar" id="record">

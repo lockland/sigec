@@ -41,19 +41,18 @@ class ProductController extends ControllerBase
         $product = $product ?: new \StdClass();
 
         try {
-            /*
-            $this->client->retrieve($id);
-            $client->id = $this->client->getId();
-            $client->name = $this->client->getName();
-            $client->motherName = $this->client->getMotherName();
-            $client->address = $this->client->getAddress();
-            $client->phone = $this->client->getPhone();
-            $client->cpfOrCnpj = $this->client->getCpfOrCnpj();
-            $client->email = $this->client->getEmail();
-            $client->city = $this->client->getCity();
-            $client->state = $this->client->getState();
-            $client->district = $this->client->getDistrict();*/
-
+            $this->model->retrieve($id);
+            $product->DESC_PROD = $this->model->getDescription();
+            $product->ESTOQ_MIN = $this->model->getMinQuantity();
+            $product->ESTOQ_MAX = $this->model->getMaxQuantity();
+            $product->VALOR_CUSTO = $this->model->getValue();
+            $product->VALOR_VENDA = $this->model->getSalesValue();
+            $product->OBS = $this->model->getOBS();
+            $product->QTDE = $this->model->getQuantity();
+            $product->GRUPO_ID = $this->model->getGroup();
+            $product->FAMILIA_ID = $this->model->getFamily();
+            $product->LOCAL_ID = $this->model->getLocal();
+            $product->FORNECEDOR_ID = $this->model->getSupply();
         } catch (\Exception $e) {
             error_log($e->getMessage());
             $errors[] = 'Could not retrieve product using id';
@@ -69,25 +68,24 @@ class ProductController extends ControllerBase
     {
         $errors = [];
         $post = (object) $_POST;
-
         try {
-            /*
-            $this->client->setId((int) $post->id);
-            $this->client->setName($post->name);
-            $this->client->setMotherName($post->motherName);
-            $this->client->setAddress($post->address);
-            $this->client->setPhone($post->phone);
-            $this->client->setCpfOrCnpj($post->cpfOrCnpj);
-            $this->client->setEmail($post->email);
-            $this->client->setCity($post->city);
-            $this->client->setState($post->state);
-            $this->client->setDistrict($post->district);
-            $this->client->save();*/
+            $this->model
+                ->setId((int) $post->id)
+                ->setDescription($post->desc_prod)
+                ->setMinQuantity($post->estoq_min)
+                ->setMaxQuantity($post->estoq_max)
+                ->setQuantity($post->qtde_prod)
+                ->setValue($post->val_custo)
+                ->setSalesValue($post->val_venda)
+                ->setOBS($post->observ)
+                ->save();
         } catch (\Exception $e) {
             error_log($e->getMessage());
             $errors[] = 'Could not store the product in database';
         }
 
+        var_dump($errors);
+        return;
         $action = $_GET['action'];
         
         if (count($errors) <= 0) {
